@@ -15,6 +15,16 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CourtServlet</servlet-name>
+        <servlet-class>com.daddy.servlet.CourtServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CourtServlet</servlet-name>
+        <url-pattern>/Court</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>encoding</filter-name>
         <filter-class>com.daddy.filter.EncodingFilter</filter-class>

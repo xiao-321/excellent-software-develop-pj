@@ -42,7 +42,7 @@ To change this template use File | Settings | File Templates.
                 <nav class="nav">
                     <ul>
                         <li><a href="index.jsp" class="active">首页</a></li>
-                        <li><a href="court_travel_show.jsp">热门图片</a>
+                        <li><a href="Court">热门图片</a>
                             <ul>
                                 <li><a href="court_travel_show.jsp">万林竹海</a></li>
                                 <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
@@ -252,7 +252,7 @@ To change this template use File | Settings | File Templates.
 <nav id="mmenu">
     <ul>
         <li><a href="index.jsp" class="active">首页</a></li>
-        <li><a href="court_travel_show.jsp">热门图片</a>
+        <li><a href="Court">热门图片</a>
             <ul>
                 <li><a href="court_travel_show.jsp">万竹林海</a></li>
                 <li><a href="court_travel_show.jsp">庐山瀑布</a></li>

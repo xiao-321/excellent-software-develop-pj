@@ -1,5 +1,7 @@
 package com.daddy.entity;
 
+import java.util.Date;
+
 public class Project {
     int id;
     String title;
@@ -8,13 +10,13 @@ public class Project {
     String heat;
     String state;
     String city;
-    String time;
+    Date time;
     String img;
 
     public Project() {
     }
 
-    public Project(int id, String title, String author, String introduction, String heat, String state, String city, String time, String img) {
+    public Project(int id, String title, String author, String introduction, String heat, String state, String city, Date time, String img) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -82,11 +84,11 @@ public class Project {
         this.city = city;
     }
 
-    public String getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 
