@@ -2,6 +2,7 @@ package com.daddy.servlet;
 
 import com.daddy.entity.User;
 import com.daddy.service.UserService;
+import sun.font.EAttribute;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class LoginServlet extends HttpServlet {
+    private UserService userService = new UserService();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -24,14 +27,11 @@ public class LoginServlet extends HttpServlet {
         if (type.equals("1")) {//1：登录
             String name = req.getParameter("name");
             String pass = req.getParameter("pass");
-            User user = new User();
-            user.setName(name);
-            user.setPass(pass);
-            UserService userService = new UserService();
+            User user = new User(name,pass,null);
             User login = userService.login(user);
+
             PrintWriter out = resp.getWriter();
             if (login.getName() == null) {
-                resp.setCharacterEncoding("utf-8");
                 out.println("2");
             } else {
                 HttpSession session = req.getSession();
@@ -41,7 +41,18 @@ public class LoginServlet extends HttpServlet {
         } else if (type.equals("2")){//2：注册
             String name = req.getParameter("name");
             String pass = req.getParameter("pass");
-
+            String email = req.getParameter("email");
+            PrintWriter out = resp.getWriter();
+            User user = new User(name,pass, email);
+            if (userService.register(user)){
+                HttpSession session = req.getSession();
+                session.setAttribute("user", user);
+                out.println("1");
+            }else {
+                out.println("2");
+            }
+        }else if (type.equals("3")){
+            
         }
 
     }

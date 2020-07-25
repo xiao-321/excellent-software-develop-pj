@@ -21,21 +21,14 @@ To change this template use File | Settings | File Templates.
             <h2>欢迎回来</h2>
             <label>
                 <span>用户名</span>
-                <input type="text" name="name"/>
+                <input type="text" id="lname" name="name" required pattern="^[a-zA-Z0-9]{4,15}$"/>
             </label>
             <label>
                 <span>密码</span>
-                <input type="password" name="pass"/>
+                <input type="password" id="lpass" name="pass" required pattern="^[a-zA-Z0-9]{6,12}$"/>
             </label>
-            <input name="type" value="1" style="display: none">
-            <button type="button" id="login" class="submit">登 录</button>
+            <button type="submit" id="login" class="submit">登 录</button>
             <button type="button" class="fb-btn" onclick="location.href='/'">返回主页</button>
-            <c:if test="${mess != null}">
-                <label>
-                    <span style="color: red"><b>提 示</b></span><br>
-                    <span style="color: red"><b>${mess}</b></span>
-                </label>
-            </c:if>
         </form>
     </div>
     <div class="sub-cont">
@@ -54,18 +47,22 @@ To change this template use File | Settings | File Templates.
             </div>
         </div>
         <div class="form sign-up">
-            <form method="post" action="${pageContext.request.contextPath}/login" id="RegisterForm">
+            <form method="post" action="javaScript:;" id="RegisterForm">
                 <h2>立即注册</h2>
                 <label>
                     <span>用户名</span>
-                    <input type="text" name="username"/>
+                    <input type="text" id="rname" name="name" required pattern="^[a-zA-Z0-9]{4,15}$"/>
                 </label>
                 <label>
                     <span>密码</span>
-                    <input type="password" name="password"/>
+                    <input type="password" id="rpass" name="pass" required pattern="^[a-zA-Z0-9]{6,12}$"/>
                 </label>
-                <input style="display: none" name="type" value="2">
-                <button type="submit" class="submit">注 册</button>
+                <label>
+                    <span>电子邮箱</span>
+                    <input type="email" id="remail" name="email" required
+                           pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$"/>
+                </label>
+                <button type="submit" class="submit" id="register">注 册</button>
                 <button type="button" class="fb-btn" onclick="location.href='/'">返回主页</button>
             </form>
         </div>
@@ -74,26 +71,49 @@ To change this template use File | Settings | File Templates.
 </body>
 <script src="${pageContext.request.contextPath}/js/script.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/md5.js" type="text/javascript"></script>
 <script>
-    $('#login').click(function () {
+    $('#LoginForm').submit(function () {
+        var uname = $('#lname').val();
+        var upass = hex_md5($('#lpass').val());
         $.ajax({
-            url:'/login',
-            type:'post',
-            data:$('#LoginForm').serialize(),
-            success:function (data) {
-                if (data==1){
-                    location.href="index.jsp"
-                }else {
+            url: '/login',
+            type: 'post',
+            data: {name: uname, pass: upass, type: 1},
+            success: function (data) {
+                if (data == 1) {
+                    location.href = "index.jsp"
+                } else {
                     alert("用户名或密码错误")
                 }
             },
-            error:function (data) {
+            error: function (data) {
                 console.log(data.state);
             }
         })
-    });
-    function login() {
+    })
+    $('#RegisterForm').submit(function () {
+        var uname = $('#rname').val();
+        var upass = hex_md5($('#rpass').val());
+        var email = $('#remail').val();
+        $.ajax({
+            url: '/login',
+            type: 'post',
+            data: {name: uname, pass: upass, email: email, type: 2},
+            success: function (data) {
+                if (data == 1) {
+                    alert("注册成功！");
+                    location.href = "index.jsp"
+                } else {
+                    alert("注册失败，用户已存在或账号不符合要求！");
+                }
+            },
+            error: function (data) {
+                console.log(data.state);
+            }
+        })
+    })
 
-    }
+
 </script>
 </html>

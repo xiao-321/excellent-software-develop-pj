@@ -60,20 +60,14 @@ To change this template use File | Settings | File Templates.
               </button>
             </span>
                     </a>
+                    <c:if test="${sessionScope.user == null}">
+                        <a href="login.jsp">登录 | 注册</a>
+                    </c:if>
+                    <c:if test="${sessionScope.user != null}">
                     <span class="y_z">
             <select name="">
-              <option value="登录">
-                <a href="" class="zh active">登录</a>
-              </option>
-              <option value="注册">
-                <a href="" class="en">注册</a>
-              </option>
-            </select>
-		  </span>
-                    <span class="y_z">
-            <select name="">
-              <option value="登录">
-                <a href="" class="zh active">用户名</a>
+              <option value="用户名">
+                <a href="https://www.baidu.com" class="zh active">用户名</a>
               </option>
               <option value="我的收藏">
                 <a href="" class="en">我的收藏</a>
@@ -91,7 +85,13 @@ To change this template use File | Settings | File Templates.
                 <a href="" class="en">退出登录</a>
               </option>
             </select>
-		  	 	</span>
+          </span>
+                        <a href="javaScript:;">${sessionScope.user.name}</a>
+                        <a href="javaScript:;">我的收藏</a>
+                        <a href="javaScript:;">分享</a>
+                        <a href="javaScript:;">查看分享</a>
+                        <a href="javaScript:;">退出登录</a>
+                    </c:if>
                 </div>
 
             </div>
