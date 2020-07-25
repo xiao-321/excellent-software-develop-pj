@@ -28,10 +28,10 @@ public class ProjectService {
         }
         return one;
     }
+
     public List<QCMax> getMax5() {
         return projectDao.getMax5();
     }
-
     public List<Project> getList() {
         return projectDao.getList();
     }
@@ -41,5 +41,13 @@ public class ProjectService {
     }
     public List<Project> getList3() {
         return projectDao.getList3();
+    }
+
+    public Page getTitleList(Page page,String title,String content){
+        return projectDao.getTitleList(page,title,content);
+    }
+
+    public Page getTimeList(Page page,String title,String content,String text){
+        return projectDao.getTimeList(page,title,content,text);
     }
 }

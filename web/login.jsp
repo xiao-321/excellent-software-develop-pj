@@ -1,12 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<%--
-Created by IntelliJ IDEA.
-User: ZSL_PC
-Date: 2020/7/17
-Time: 14:55
-To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

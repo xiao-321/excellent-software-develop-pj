@@ -49,4 +49,24 @@ public class ProjectDao {
         return baseDao.querySome("select * from project order by id desc limit 0,3", Project.class);
     }
 
+    public Page getTitleList(Page page,String title,String content){
+        String sql = "select * from project where "+content+" like '%?%' limit ?,?";
+        String count = "select count(id) from project where "+content+" like '%?%'";
+        List<Project> projects = baseDao.querySome(sql, Project.class, title, page.getSize(), page.getLimit());
+        int sum = baseDao.queryCount(count,title);
+        page.setSum(sum);
+        page.setData(projects);
+        return page;
+    }
+
+    public Page getTimeList(Page page,String title,String content,String text){
+        String sql = "select * from project where title "+content+" '%?%' order by "+text+" desc limit ?,?";
+        List<Project> projects = baseDao.querySome(sql, Project.class, title, page.getSize(), page.getLimit());
+        String count = "select * from project where "+content+" like '%?%'";
+        int sum = baseDao.queryCount(count, title);
+        page.setSum(sum);
+        page.setData(projects);
+        return page;
+    }
+
 }

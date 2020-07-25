@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +34,9 @@
         <nav class="nav">
           <ul>
             <li><a href="index.jsp" class="active">首页</a></li>
-            <li><a href="court_travel_show.jsp">热门图片</a>
+            <li><a href="Court">热门图片</a>
               <ul>
-                <li><a href="court_travel_show.jsp">万林竹海</a></li>
+                <li><a href="Court?title=万竹">万林竹海</a></li>
                 <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
                 <li><a href="court_travel_show.jsp">乐山大佛</a></li>
               </ul>
@@ -91,6 +93,7 @@
           </div>
         </div>
       </div>
+      <c:forEach items="" var="pro">
       <div class="syzz-midden">
         <div class="midden-img">
           <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
@@ -98,41 +101,14 @@
         </div>
         <div class="middle-text">
           <p>
-          <h3>[作者]</h3>测试文本</p>
+          <h3>[作者]</h3>${pro}</p>
           <p>
           <h3>[主题]</h3>测试文本</p>
           <p>
           <h3>[发布时间]</h3>测试文本</p>
         </div>
       </div>
-      <div class="syzz-midden">
-        <div class="midden-img">
-          <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
-          </div>
-        </div>
-        <div class="middle-text">
-          <p>
-          <h3>[作者]</h3>测试文本</p>
-          <p>
-          <h3>[主题]</h3>测试文本</p>
-          <p>
-          <h3>[发布时间]</h3>测试文本</p>
-        </div>
-      </div>
-      <div class="syzz-midden">
-        <div class="midden-img">
-          <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
-          </div>
-        </div>
-        <div class="middle-text">
-          <p>
-          <h3>[作者]</h3>测试文本</p>
-          <p>
-          <h3>[主题]</h3>测试文本</p>
-          <p>
-          <h3>[发布时间]</h3>测试文本</p>
-        </div>
-      </div>
+      </c:forEach>
     </div>
   </div>
 </div>

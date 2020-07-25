@@ -64,6 +64,30 @@ public class BaseDao implements AutoCloseable {
         return t;
     }
 
+    public int queryCount(String sql, Object... args) {
+        PreparedStatement pr = null;
+        ResultSet rs = null;
+        int sum=0;
+        try {
+            con = DBUtil.getSqlConnection();
+            pr = con.prepareStatement(sql);
+            if (args.length != 0) {
+                for (int i = 0; i < args.length; i++) {
+                    pr.setObject(i + 1, args[i]);
+                }
+            }
+            rs = pr.executeQuery();
+            while (rs.next()) {
+              sum = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeAll(pr, rs);
+        }
+        return sum;
+    }
+
     public <T> void savetoInstance(Class<T> clazz, ResultSet rs, T t) throws SQLException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Field[] fieldArr = clazz.getDeclaredFields();
         for (Field field : fieldArr) {

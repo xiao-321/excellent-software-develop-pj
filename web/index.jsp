@@ -53,7 +53,7 @@ To change this template use File | Settings | File Templates.
                     </ul>
                 </nav>
                 <div class="search">
-                    <a href="search.html">
+                    <a href="search.jsp">
             <span class="sea_x">
               <button type="button" class="btn btn-default icon-search btn-sm">
                 <span class="glyphicon glyphicon-search " aria-hidden="true"></span> 搜索

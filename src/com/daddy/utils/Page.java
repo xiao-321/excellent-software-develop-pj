@@ -9,6 +9,16 @@ public class Page {
     int size;
     //    总数
     int sum;
+    //   内容
+    Object data;
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
 
     public Page() {
 
@@ -61,6 +71,7 @@ public class Page {
                 ", page=" + page +
                 ", size=" + size +
                 ", sum=" + sum +
+                ", data=" + data +
                 '}';
     }
 }
