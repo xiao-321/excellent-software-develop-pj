@@ -96,7 +96,7 @@ public class Project {
         return img;
     }
 
-    public void setImt(String img) {
+    public void setImg(String img) {
         this.img = img;
     }
 
@@ -111,7 +111,7 @@ public class Project {
                 ", state='" + state + '\'' +
                 ", city='" + city + '\'' +
                 ", time='" + time + '\'' +
-                ", imt='" + img + '\'' +
+                ", img='" + img + '\'' +
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package com.daddy.service;
 
 import com.daddy.dao.ProjectDao;
 import com.daddy.entity.Project;
+import com.daddy.entity.QCMax;
 import com.daddy.utils.Page;
 
 import java.util.List;
@@ -27,5 +28,18 @@ public class ProjectService {
         }
         return one;
     }
+    public List<QCMax> getMax5() {
+        return projectDao.getMax5();
+    }
 
+    public List<Project> getList() {
+        return projectDao.getList();
+    }
+
+    public Project getById(int id) {
+        return projectDao.getById(id);
+    }
+    public List<Project> getList3() {
+        return projectDao.getList3();
+    }
 }

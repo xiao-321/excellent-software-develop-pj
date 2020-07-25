@@ -19,13 +19,13 @@ To change this template use File | Settings | File Templates.
     <link rel="shortcut icon" href="images/favicon.ico">
 
     <!-- include main css -->
-    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery.mmenu.all.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
     <!--  <link href="font-awesome-4.5.0/css/font-awesome.min.css" rel='stylesheet' type='text/css' media="all"/>-->
-    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
-    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/animate.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/swiper-3.4.2.min.css">
 
 </head>
 <body>
@@ -65,32 +65,14 @@ To change this template use File | Settings | File Templates.
                     </c:if>
                     <c:if test="${sessionScope.user != null}">
                     <span class="y_z">
-            <select name="">
-              <option value="用户名">
-                <a href="https://www.baidu.com" class="zh active">用户名</a>
-              </option>
-              <option value="我的收藏">
-                <a href="" class="en">我的收藏</a>
-              </option>
-              <option value="上传">
-                <a href="" class="en">上传</a>
-              </option>
-              <option value="我的图片">
-                <a href="" class="en">我的图片</a>
-              </option>
-              <option value="我的好友">
-                <a href="" class="en">我的好友</a>
-              </option>
-              <option value="退出登录">
-                <a href="" class="en">退出登录</a>
-              </option>
+            <select name="sele" onchange="s_click(this)">
+              <option value="javaScript:;">${sessionScope.user.name}</option>
+              <option value="https://www.baidu.com">我的收藏</option>
+              <option value="https://www.baidu.com">上传</option>
+              <option value="https://www.baidu.com">我的图片</option>
+              <option value="/index?type=5">退出登录</option>
             </select>
           </span>
-                        <a href="javaScript:;">${sessionScope.user.name}</a>
-                        <a href="javaScript:;">我的收藏</a>
-                        <a href="javaScript:;">分享</a>
-                        <a href="javaScript:;">查看分享</a>
-                        <a href="javaScript:;">退出登录</a>
                     </c:if>
                 </div>
 
@@ -117,33 +99,17 @@ To change this template use File | Settings | File Templates.
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide wow bounceIn">
-                <a href="court_travel_show.jsp">
-                    <img src="images/home_1.png" alt="" class="vcenter"/>
-                </a>
-                <a href="court_travel_show.jsp" class="swiper-text">
+            <c:forEach items="${projects}" var="project">
+                <div class="swiper-slide wow bounceIn">
+                    <a href="court_travel_show.jsp">
+                        <img src="${project.img}" alt="" class="vcenter"/>
+                    </a>
+                    <a href="court_travel_show.jsp" class="swiper-text">
           <span class="glyphicon glyphicon glyphicon-fire " style="color: red" aria-hidden="true">
-          </span>万林竹海
-                </a>
-            </div>
-            <div class="swiper-slide wow bounceIn">
-                <a href="court_travel_show.jsp">
-                    <img src="images/comfortable-lushan.png" alt="" class="vcenter"/>
-                </a>
-                <a href="court_travel_show.jsp" class="swiper-text">
-          <span class="glyphicon glyphicon glyphicon-fire " style="color: rgba(255,0,0,0.7)" aria-hidden="true">
-          </span>庐山瀑布
-                </a>
-            </div>
-            <div class="swiper-slide wow bounceIn">
-                <a href="court_travel_show.jsp">
-                    <img src="images/comfortable-leshan.png" alt="" class="vcenter"/>
-                </a>
-                <a href="court_travel_show.jsp" class="swiper-text">
-          <span class="glyphicon glyphicon glyphicon-fire " style="color:  rgba(255,0,0,0.5)" aria-hidden="true">
-          </span>乐山大佛
-                </a>
-            </div>
+          </span>${project.title}
+                    </a>
+                </div>
+            </c:forEach>
         </div>
         <!-- 如果需要分页器 -->
         <div class="swiper-pagination"></div>
@@ -167,48 +133,25 @@ To change this template use File | Settings | File Templates.
                     </div>
                 </div>
             </div>
-            <div class="syzz-midden">
-                <div class="midden-img">
-                    <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
+            <c:forEach items="${newsProjects}" var="news">
+                <div class="syzz-midden">
+                    <div class="midden-img">
+                        <div><a href="comfortable.jsp"><img src="${news.img}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="middle-text">
+                        <p>
+                        <h3>[作者]</h3>${news.author}
+                        </p>
+                        <p>
+                        <h3>[主题]</h3>${news.title}
+                        </p>
+                        <p>
+                        <h3>[发布时间]</h3>${news.time}
+                        </p>
                     </div>
                 </div>
-                <div class="middle-text">
-                    <p>
-                    <h3>[作者]</h3>测试文本</p>
-                    <p>
-                    <h3>[主题]</h3>测试文本</p>
-                    <p>
-                    <h3>[发布时间]</h3>测试文本</p>
-                </div>
-            </div>
-            <div class="syzz-midden">
-                <div class="midden-img">
-                    <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="middle-text">
-                    <p>
-                    <h3>[作者]</h3>测试文本</p>
-                    <p>
-                    <h3>[主题]</h3>测试文本</p>
-                    <p>
-                    <h3>[发布时间]</h3>测试文本</p>
-                </div>
-            </div>
-            <div class="syzz-midden">
-                <div class="midden-img">
-                    <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="middle-text">
-                    <p>
-                    <h3>[作者]</h3>测试文本</p>
-                    <p>
-                    <h3>[主题]</h3>测试文本</p>
-                    <p>
-                    <h3>[发布时间]</h3>测试文本</p>
-                </div>
-            </div>
+            </c:forEach>
         </div>
         <div class="xia_x">
             <span class="img"></span>
@@ -265,28 +208,28 @@ To change this template use File | Settings | File Templates.
 </div>
 
 <!--Include Js-->
-<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
 
 <!--移动端导航-->
-<script src="js/jquery.mmenu.all.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.mmenu.all.min.js" type="text/javascript" charset="utf-8"></script>
 
 
 <!--slick-->
-<script src="js/slick.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/wow.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/slick.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/wow.js" type="text/javascript" charset="utf-8"></script>
 
 <!--placeholder-->
-<script src="js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function () {
         $('input, textarea').placeholder();
     });
 </script>
-<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/public.js" type="text/javascript" charset="utf-8"></script>
 <!--<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
 
-<script src="js/swiper-3.4.2.min.js"></script>
-<script src="js/swiper-3.4.2.jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/swiper-3.4.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/swiper-3.4.2.jquery.min.js"></script>
 
 <script type="text/javascript">
     window.onload = function () {
@@ -308,7 +251,20 @@ To change this template use File | Settings | File Templates.
         slidesPerView: 3,
         centeredSlides: true,
         autoplay: 2500
-    })
+    });
+
+    function s_click(obj) {
+        var num = 0;
+        for (var i = 0; i < obj.options.length; i++) {
+            if (obj.options[i].selected === true) {
+                num++;
+            }
+        }
+        if (num === 1) {
+            var url = obj.options[obj.selectedIndex].value;
+            window.open(url); //这里修改打开连接方式
+        }
+    }
 </script>
 </body>
 </html>

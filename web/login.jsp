@@ -82,7 +82,7 @@ To change this template use File | Settings | File Templates.
             data: {name: uname, pass: upass, type: 1},
             success: function (data) {
                 if (data == 1) {
-                    location.href = "index.jsp"
+                    location.href = "/index"
                 } else {
                     alert("用户名或密码错误")
                 }
@@ -103,7 +103,7 @@ To change this template use File | Settings | File Templates.
             success: function (data) {
                 if (data == 1) {
                     alert("注册成功！");
-                    location.href = "index.jsp"
+                    location.href = "/index"
                 } else {
                     alert("注册失败，用户已存在或账号不符合要求！");
                 }
