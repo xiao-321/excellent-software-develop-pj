@@ -22,8 +22,8 @@ public class LoginServlet extends HttpServlet {
         String name = req.getParameter("name");
         String pass = req.getParameter("pass");
         String type = req.getParameter("type");
-        //1：登录
-        if (type.equals("1")) {
+        //通过type判断是登录还是注册
+        if (type.equals("1")) {//1：登录
             User user = new User();
             user.setName(name);
             user.setPass(pass);
@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
             } else {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", login);
-                resp.sendRedirect("index.html");
+                resp.sendRedirect("index.jsp");
             }
         } else {//2：注册
 

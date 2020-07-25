@@ -9,7 +9,7 @@ public class DBUtil {
         try{
             if(con==null){
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://129.211.106.53:3306/daddy?useUnicode=true&characterEncoding=utf8&&serverTimezone=UTC","root","nscg0201");
+                con = DriverManager.getConnection("jdbc:mysql://129.211.106.53:3306/daddy?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC","root","nscg0201");
             }
         }catch(Exception e){
             e.printStackTrace();
