@@ -24,7 +24,6 @@ public class BrowserFilter implements Filter{
 			chain.doFilter(request, response);
 		}else if(userAgent.contains(".NET")){
 			chain.doFilter(request, response);
-		}else{
 		}
 		
 	}

@@ -8,8 +8,8 @@ public class DBUtil {
     public static synchronized  Connection getSqlConnection(){
         try{
             if(con==null){
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://121.42.51.148:3306/javaxs_11?useUnicode=true&characterEncoding=utf8&&serverTimezone=UTC","user11","pass11");
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://129.211.106.53:3306/daddy?useUnicode=true&characterEncoding=utf8&&serverTimezone=UTC","root","nscg0201");
             }
         }catch(Exception e){
             e.printStackTrace();
