@@ -32,14 +32,14 @@
         <nav class="nav">
           <ul>
             <li><a href="index.jsp">首页</a></li>
-            <li><a href="court_travel_show.html">热门图片</a>
+            <li><a href="court_travel_show.jsp">热门图片</a>
               <ul>
-                <li><a href="court_travel_show.html">万林竹海</a></li>
-                <li><a href="court_travel_show.html">庐山瀑布</a></li>
-                <li><a href="court_travel_show.html">乐山大佛</a></li>
+                <li><a href="court_travel_show.jsp">万林竹海</a></li>
+                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
+                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
               </ul>
             </li>
-            <li><a href="comfortable.html" class="active">最新图片</a></li>
+            <li><a href="comfortable.jsp" class="active">最新图片</a></li>
           </ul>
         </nav>
         <div class="search">
@@ -66,7 +66,7 @@
   </div>
   <div class="comfor_con">
     <div class="top_tit">
-      <span class="span1"><a href="comfortable.html">最新上传</a></span><br/>
+      <span class="span1"><a href="comfortable.jsp">最新上传</a></span><br/>
       <span class="span2">Latest upload</span>
     </div>
     <div class="com_shi">
@@ -196,14 +196,14 @@
   <nav id="mmenu">
     <ul>
       <li><a href="index.jsp" class="active">首页</a></li>
-      <li><a href="court_travel_show.html">热门图片</a>
+      <li><a href="court_travel_show.jsp">热门图片</a>
         <ul>
-          <li><a href="court_travel_show.html">万竹林海</a></li>
-          <li><a href="court_travel_show.html">庐山瀑布</a></li>
-          <li><a href="court_travel_show.html">乐山大佛</a></li>
+          <li><a href="court_travel_show.jsp">万竹林海</a></li>
+          <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
+          <li><a href="court_travel_show.jsp">乐山大佛</a></li>
         </ul>
       </li>
-      <li><a href="comfortable.html">最新图片</a></li>
+      <li><a href="comfortable.jsp">最新图片</a></li>
     </ul>
   </nav>
 </div>

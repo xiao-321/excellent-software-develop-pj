@@ -12,4 +12,8 @@ public class ProjectDao {
         String sql="select * from project limit ?,?";
         return baseDao.querySome(sql,Project.class,page.getSize(),page.getLimit());
     }
+    public Project getOne(String title){
+        String sql="select * from project where title = ?";
+        return baseDao.queryOne(sql,Project.class,title);
+    }
 }

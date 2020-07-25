@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,14 +33,14 @@
 				<nav class="nav">
 					<ul>
 						<li><a href="index.jsp">首页</a></li>
-						<li><a href="court_travel_show.html" class="active">热门图片</a>
+						<li><a href="court_travel_show.jsp" class="active">热门图片</a>
 							<ul>
-								<li><a href="court_travel_show.html">万林竹海</a></li>
-								<li><a href="court_travel_show.html">庐山瀑布</a></li>
-								<li><a href="court_travel_show.html">乐山大佛</a></li>
+								<li><a href="court_travel_show.jsp">万林竹海</a></li>
+								<li><a href="court_travel_show.jsp">庐山瀑布</a></li>
+								<li><a href="court_travel_show.jsp">乐山大佛</a></li>
 							</ul>
 						</li>
-						<li><a href="comfortable.html">最新图片</a></li>
+						<li><a href="comfortable.jsp">最新图片</a></li>
 					</ul>
 				</nav>
 		  	 <div class="search">
@@ -169,14 +171,14 @@
 	<nav id="mmenu">
 		<ul>
 			<li><a href="index.jsp" class="active">首页</a></li>
-   			<li><a href="court_travel_show.html">热门图片</a>
+   			<li><a href="court_travel_show.jsp">热门图片</a>
             	<ul>
-   					<li><a href="court_travel_show.html">万竹林海</a></li>
-   					<li><a href="court_travel_show.html">庐山瀑布</a></li>
-   					<li><a href="court_travel_show.html">乐山大佛</a></li>
+   					<li><a href="court_travel_show.jsp">万竹林海</a></li>
+   					<li><a href="court_travel_show.jsp">庐山瀑布</a></li>
+   					<li><a href="court_travel_show.jsp">乐山大佛</a></li>
    				</ul>
             </li>
-   			<li><a href="comfortable.html">最新图片</a></li>
+   			<li><a href="comfortable.jsp">最新图片</a></li>
 		</ul>
 	</nav>
 </div>
@@ -200,6 +202,5 @@
 </script>
 
 <!--<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
-
 </body>
 </html>

@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
             PrintWriter out = resp.getWriter();
             if (login.getName() == null) {
                 resp.setCharacterEncoding("utf-8");
-                out.println("用户名或密码错误！");
+                out.println("2");
             } else {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", login);

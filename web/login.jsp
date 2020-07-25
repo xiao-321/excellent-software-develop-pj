@@ -81,7 +81,11 @@ To change this template use File | Settings | File Templates.
             type:'post',
             data:$('#LoginForm').serialize(),
             success:function (data) {
-                alert(data);
+                if (data==1){
+                    location.href="index.jsp"
+                }else {
+                    alert("用户名或密码错误")
+                }
             },
             error:function (data) {
                 console.log(data.state);

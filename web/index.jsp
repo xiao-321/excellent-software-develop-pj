@@ -42,14 +42,14 @@ To change this template use File | Settings | File Templates.
                 <nav class="nav">
                     <ul>
                         <li><a href="index.jsp" class="active">首页</a></li>
-                        <li><a href="court_travel_show.html">热门图片</a>
+                        <li><a href="court_travel_show.jsp">热门图片</a>
                             <ul>
-                                <li><a href="court_travel_show.html">万林竹海</a></li>
-                                <li><a href="court_travel_show.html">庐山瀑布</a></li>
-                                <li><a href="court_travel_show.html">乐山大佛</a></li>
+                                <li><a href="court_travel_show.jsp">万林竹海</a></li>
+                                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
+                                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
                             </ul>
                         </li>
-                        <li><a href="comfortable.html">最新图片</a></li>
+                        <li><a href="comfortable.jsp">最新图片</a></li>
                     </ul>
                 </nav>
                 <div class="search">
@@ -107,7 +107,7 @@ To change this template use File | Settings | File Templates.
     <div class="jqgk">
         <div class="contai">
             <div class="top_tit">
-                <span class="span1"><a href="court_travel_show.html">热门介绍</a></span><br/>
+                <span class="span1"><a href="court_travel_show.jsp">热门介绍</a></span><br/>
                 <span class="span2">POPULAR INTRODUCTION</span>
             </div>
             <div class="xia_x">
@@ -118,28 +118,28 @@ To change this template use File | Settings | File Templates.
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide wow bounceIn">
-                <a href="court_travel_show.html">
+                <a href="court_travel_show.jsp">
                     <img src="images/home_1.png" alt="" class="vcenter"/>
                 </a>
-                <a href="court_travel_show.html" class="swiper-text">
+                <a href="court_travel_show.jsp" class="swiper-text">
           <span class="glyphicon glyphicon glyphicon-fire " style="color: red" aria-hidden="true">
           </span>万林竹海
                 </a>
             </div>
             <div class="swiper-slide wow bounceIn">
-                <a href="court_travel_show.html">
+                <a href="court_travel_show.jsp">
                     <img src="images/comfortable-lushan.png" alt="" class="vcenter"/>
                 </a>
-                <a href="court_travel_show.html" class="swiper-text">
+                <a href="court_travel_show.jsp" class="swiper-text">
           <span class="glyphicon glyphicon glyphicon-fire " style="color: rgba(255,0,0,0.7)" aria-hidden="true">
           </span>庐山瀑布
                 </a>
             </div>
             <div class="swiper-slide wow bounceIn">
-                <a href="court_travel_show.html">
+                <a href="court_travel_show.jsp">
                     <img src="images/comfortable-leshan.png" alt="" class="vcenter"/>
                 </a>
-                <a href="court_travel_show.html" class="swiper-text">
+                <a href="court_travel_show.jsp" class="swiper-text">
           <span class="glyphicon glyphicon glyphicon-fire " style="color:  rgba(255,0,0,0.5)" aria-hidden="true">
           </span>乐山大佛
                 </a>
@@ -159,7 +159,7 @@ To change this template use File | Settings | File Templates.
             <div class="jqgk">
                 <div class="contai">
                     <div class="top_tit">
-                        <span class="span1"><a href="comfortable.html">最新图片</a></span><br/>
+                        <span class="span1"><a href="comfortable.jsp">最新图片</a></span><br/>
                         <span class="span2">LATEST UPLOAD</span>
                     </div>
                     <div class="xia_x">
@@ -169,7 +169,7 @@ To change this template use File | Settings | File Templates.
             </div>
             <div class="syzz-midden">
                 <div class="midden-img">
-                    <div><a href="comfortable.html"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
+                    <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="middle-text">
@@ -183,7 +183,7 @@ To change this template use File | Settings | File Templates.
             </div>
             <div class="syzz-midden">
                 <div class="midden-img">
-                    <div><a href="comfortable.html"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
+                    <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="middle-text">
@@ -197,7 +197,7 @@ To change this template use File | Settings | File Templates.
             </div>
             <div class="syzz-midden">
                 <div class="midden-img">
-                    <div><a href="comfortable.html"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
+                    <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="middle-text">
@@ -252,14 +252,14 @@ To change this template use File | Settings | File Templates.
 <nav id="mmenu">
     <ul>
         <li><a href="index.jsp" class="active">首页</a></li>
-        <li><a href="court_travel_show.html">热门图片</a>
+        <li><a href="court_travel_show.jsp">热门图片</a>
             <ul>
-                <li><a href="court_travel_show.html">万竹林海</a></li>
-                <li><a href="court_travel_show.html">庐山瀑布</a></li>
-                <li><a href="court_travel_show.html">乐山大佛</a></li>
+                <li><a href="court_travel_show.jsp">万竹林海</a></li>
+                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
+                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
             </ul>
         </li>
-        <li><a href="comfortable.html">最新图片</a></li>
+        <li><a href="comfortable.jsp">最新图片</a></li>
     </ul>
 </nav>
 </div>
