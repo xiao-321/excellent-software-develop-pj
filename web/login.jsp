@@ -21,11 +21,11 @@ To change this template use File | Settings | File Templates.
             <h2>欢迎回来</h2>
             <label>
                 <span>用户名</span>
-                <input type="text" name="username"/>
+                <input type="text" name="name"/>
             </label>
             <label>
                 <span>密码</span>
-                <input type="password" name="password"/>
+                <input type="password" name="pass"/>
             </label>
             <input name="type" value="1" style="display: none">
             <button type="submit" id="login" class="submit">登 录</button>
