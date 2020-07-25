@@ -34,10 +34,10 @@ public class MySQLGeneratorEntityUtil {
     // 数据库操作
     private static final String SQL = "SELECT * FROM ";
     // 数据库配置信息
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/travels?useUnicode=true&characterEncoding=utf8&&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://129.211.106.53:3306/daddy?useUnicode=true&characterEncoding=utf8&&serverTimezone=UTC";
     private static final String NAME = "root";
-    private static final String PASS = "123456";
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String PASS = "nscg0201";
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
     //指定实体生成所在包的路径
     private static String basePath = new File("").getAbsolutePath();
