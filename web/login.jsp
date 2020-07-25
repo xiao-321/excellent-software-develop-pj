@@ -73,7 +73,7 @@ To change this template use File | Settings | File Templates.
 </div>
 
 <script src="${pageContext.request.contextPath}/js/script.js" type="text/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js" type="text/javascript"></script>
 
 </body>
 
