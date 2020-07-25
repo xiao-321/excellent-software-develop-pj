@@ -10,25 +10,25 @@ To change this template use File | Settings | File Templates.
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>监管管理-登录/注册</title>
+    <title>旅游分享-登录/注册</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 
 <body>
 <div class="content">
     <div id="loginDiv" class="form sign-in">
-        <form id="LoginForm" method="post" action="${pageContext.request.contextPath}/login">
+        <form id="LoginForm" method="post" action="JavaScript:;">
             <h2>欢迎回来</h2>
             <label>
                 <span>用户名</span>
-                <input type="text" name="name"/>.
+                <input type="text" name="name"/>
             </label>
             <label>
                 <span>密码</span>
                 <input type="password" name="pass"/>
             </label>
             <input name="type" value="1" style="display: none">
-            <button type="submit" id="login" class="submit">登 录</button>
+            <button type="button" id="login" class="submit">登 录</button>
             <button type="button" class="fb-btn" onclick="location.href='/'">返回主页</button>
             <c:if test="${mess != null}">
                 <label>
@@ -71,10 +71,25 @@ To change this template use File | Settings | File Templates.
         </div>
     </div>
 </div>
-
+</body>
 <script src="${pageContext.request.contextPath}/js/script.js" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js" type="text/javascript"></script>
+<script>
+    $('#login').click(function () {
+        $.ajax({
+            url:'/login',
+            type:'post',
+            data:$('#LoginForm').serialize(),
+            success:function (data) {
+                alert(data);
+            },
+            error:function (data) {
+                console.log(data.state);
+            }
+        })
+    });
+    function login() {
 
-</body>
-
+    }
+</script>
 </html>

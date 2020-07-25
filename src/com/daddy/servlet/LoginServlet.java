@@ -19,26 +19,28 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
-        String pass = req.getParameter("pass");
         String type = req.getParameter("type");
         //通过type判断是登录还是注册
         if (type.equals("1")) {//1：登录
+            String name = req.getParameter("name");
+            String pass = req.getParameter("pass");
             User user = new User();
             user.setName(name);
             user.setPass(pass);
             UserService userService = new UserService();
             User login = userService.login(user);
-            if (login == null) {
+            PrintWriter out = resp.getWriter();
+            if (login.getName() == null) {
                 resp.setCharacterEncoding("utf-8");
-                req.setAttribute("mess","用户名或密码错误！");
-                req.getRequestDispatcher("login.jsp").forward(req, resp);
+                out.println("用户名或密码错误！");
             } else {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", login);
-                resp.sendRedirect("index.jsp");
+                out.println("1");
             }
-        } else {//2：注册
+        } else if (type.equals("2")){//2：注册
+            String name = req.getParameter("name");
+            String pass = req.getParameter("pass");
 
         }
 
