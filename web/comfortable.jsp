@@ -15,7 +15,6 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<!--  <link href="font-awesome-4.5.0/css/font-awesome.min.css" rel='stylesheet' type='text/css' media="all"/>-->
   <link rel="stylesheet" type="text/css" href="css/animate.css"/>
 
 </head>
