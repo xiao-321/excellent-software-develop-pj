@@ -5,9 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>珍岛集团</title>
-    <meta name="keywords" content="珍岛集团">
-    <meta name="description" content="珍岛集团">
+    <title>Daddy旅行社</title>
+    <meta name="keywords" content="Daddy旅行社">
+    <meta name="description" content="Daddy旅行社">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="images/favicon.ico">
 
@@ -33,13 +33,7 @@
                 <nav class="nav">
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
-                        <li><a href="court_travel_show.jsp" class="active">热门图片</a>
-                            <ul>
-                                <li><a href="court_travel_show.jsp">万林竹海</a></li>
-                                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-                                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="court_travel_show.jsp" class="active">热门图片</a></li>
                         <li><a href="comfortable.jsp">最新图片</a></li>
                     </ul>
                 </nav>
@@ -86,20 +80,17 @@
                                 <li><strong>[国家]</strong><span>${requestScope.one.state}</span></li>
                                 <li><strong>[城市]</strong><span>${requestScope.one.city}</span></li>
                                 <li><strong>[发布时间]</strong><span>${requestScope.one.time}</span></li>
-                                <span class="glyphicon glyphicon-star-empty icon-collection" aria-hidden="true">
-        <button class="Collection">收藏</button>
-      </span>
+                                <span class="glyphicon glyphicon-star-empty icon-collection" aria-hidden="true"><button
+                                        class="Collection">收藏</button></span>
                                 <span class="glyphicon glyphicon-star-empty icon-collection" aria-hidden="true"
-                                      style="color: red">
-        <button class="Collection">取消收藏</button>
-      </span>
+                                      style="color: red"><button class="Collection">取消收藏</button></span>
                             </ul>
                         </div>
                         <div><img src="images/fa_da2.jpg" alt=""/><i></i></div>
                         <div><img src="images/fa_da3.jpg" alt=""/><i></i></div>
                     </div>
                     <div class="f_xiao">
-                        <c:forEach items="${requestScope.list}" var="pro" >
+                        <c:forEach items="${requestScope.list}" var="pro">
                             <div>
                                 <a href="">
                                     <div class="pic">

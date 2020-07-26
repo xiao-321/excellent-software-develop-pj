@@ -12,9 +12,9 @@ To change this template use File | Settings | File Templates.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>**旅游</title>
-    <meta name="keywords" content="**旅游">
-    <meta name="description" content="**旅游">
+    <title>Daddy旅行社</title>
+    <meta name="keywords" content="Daddy旅行社">
+    <meta name="description" content="Daddy旅行社">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="images/favicon.ico">
 
@@ -42,13 +42,7 @@ To change this template use File | Settings | File Templates.
                 <nav class="nav">
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/index" class="active">首页</a></li>
-                        <li><a href="Court">热门图片</a>
-                            <ul>
-                                <li><a href="court_travel_show.jsp">万林竹海</a></li>
-                                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-                                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="Court">热门图片</a></li>
                         <li><a href="comfortable.jsp">最新图片</a></li>
                     </ul>
                 </nav>
@@ -125,7 +119,7 @@ To change this template use File | Settings | File Templates.
             <div class="jqgk">
                 <div class="contai">
                     <div class="top_tit">
-                        <span class="span1"><a href="comfortable.jsp">最新图片</a></span><br/>
+                        <span class="span1"><a href="javaScript:;">所有分享</a></span><br/>
                         <span class="span2">LATEST UPLOAD</span>
                     </div>
                     <div class="xia_x">

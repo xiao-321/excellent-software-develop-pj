@@ -1,6 +1,5 @@
 package com.daddy.servlet;
 
-import com.daddy.entity.Project;
 import com.daddy.service.ProjectService;
 import com.daddy.utils.Page;
 
@@ -23,6 +22,7 @@ public class SearchServlet  extends HttpServlet {
         String select = (String) req.getAttribute("select");
         Integer limit = (Integer) req.getAttribute("limit");
         Integer page = (Integer) req.getAttribute("page");
+
         Page p=new Page(limit,page);
         ProjectService projectService=new ProjectService();
         Page timeList = projectService.getTimeList(p, search, content, select);

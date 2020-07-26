@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>珍岛集团</title>
-  <meta name="keywords" content="珍岛集团">
-  <meta name="description" content="珍岛集团">
+  <title>Daddy旅行社</title>
+  <meta name="keywords" content="Daddy旅行社">
+  <meta name="description" content="Daddy旅行社">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="shortcut icon" href="images/favicon.ico">
 
@@ -33,13 +33,7 @@
         <nav class="nav">
           <ul>
             <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
-            <li><a href="court_travel_show.jsp">热门图片</a>
-              <ul>
-                <li><a href="court_travel_show.jsp">万林竹海</a></li>
-                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
-              </ul>
-            </li>
+            <li><a href="court_travel_show.jsp">热门图片</a></li>
             <li><a href="comfortable.jsp" class="active">最新图片</a></li>
           </ul>
         </nav>

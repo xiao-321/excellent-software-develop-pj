@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>**旅游</title>
-    <meta name="keywords" content="**旅游">
-    <meta name="description" content="**旅游">
+    <title>Daddy旅行社</title>
+    <meta name="keywords" content="Daddy旅行社">
+    <meta name="description" content="Daddy旅行社">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="images/favicon.ico">
 
@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <!--  <link href="font-awesome-4.5.0/css/font-awesome.min.css" rel='stylesheet' type='text/css' media="all"/>-->
     <link rel="stylesheet" type="text/css" href="css/animate.css"/>
     <link rel="stylesheet" type="text/css" href="css/addPic.css"/>
 
@@ -33,13 +32,7 @@
                 <nav class="nav">
                     <ul>
                         <li><a href="index.jsp" class="active">首页</a></li>
-                        <li><a href="court_travel_show.jsp">热门图片</a>
-                            <ul>
-                                <li><a href="court_travel_show.jsp">万林竹海</a></li>
-                                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-                                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="court_travel_show.jsp">热门图片</a></li>
                         <li><a href="comfortable.jsp">最新图片</a></li>
                     </ul>
                 </nav>
@@ -69,9 +62,9 @@
             银行ID：<input style="margin-left: 29px;" type="text" placeholder="请输入"><br>
             图片地址：<input style="margin-left: 15px;" type="text" placeholder="请输入"><br>
             图片选择：<select style="margin-left: 15px;" name="" id="">
-                <option value="">请选择……</option>
-                <option value="">请选择……</option>
-            </select>
+            <option value="">请选择……</option>
+            <option value="">请选择……</option>
+        </select>
             <img id="preview" src="" alt="请上传图片">
         </form>
     </div>
@@ -161,7 +154,6 @@
                 var imgObj = document.getElementById("preview");
                 imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
                 imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
-
             }
         });
     });

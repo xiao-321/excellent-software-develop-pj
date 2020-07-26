@@ -32,6 +32,10 @@ public class ProjectService {
     public List<QCMax> getMax5() {
         return projectDao.getMax5();
     }
+    public List<Project> getAll() {
+        return projectDao.getAll();
+    }
+
     public List<Project> getList() {
         return projectDao.getList();
     }

@@ -1,13 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>**旅游</title>
-    <meta name="keywords" content="**旅游">
-    <meta name="description" content="**旅游">
+    <title>Daddy旅行社</title>
+    <meta name="keywords" content="Daddy旅行社">
+    <meta name="description" content="Daddy旅行社">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="images/favicon.ico">
 
@@ -58,6 +57,7 @@
         </div>
     </header>
     <div id="search">
+        <form action="${pageContext.request.contextPath}/Search" method="post">
         <input type="search" placeholder="请输入搜索内容">
         <select name="">
             <option value="请选择">请选择</option>
@@ -72,6 +72,7 @@
         <button type="button" class="btn btn-default icon-search btn-sm">
             <span class="glyphicon glyphicon-search " aria-hidden="true"></span> 搜索
         </button>
+        </form>
     </div>
 
     <!--banner  start-->

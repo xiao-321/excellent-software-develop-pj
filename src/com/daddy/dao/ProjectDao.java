@@ -8,7 +8,7 @@ import com.daddy.utils.Page;
 import java.util.List;
 
 public class ProjectDao {
-    BaseDao baseDao = new BaseDao();
+    private BaseDao baseDao = new BaseDao();
 
     public List<Project> getList(Page page) {
         String sql = "select * from project limit ?,?";
@@ -60,13 +60,18 @@ public class ProjectDao {
     }
 
     public Page getTimeList(Page page,String title,String content,String text){
-        String sql = "select * from project where title "+content+" '%?%' order by "+text+" desc limit ?,?";
+        String sql = "select * from project where "+content+" like '%?%' order by "+text+" desc limit ?,?";
         List<Project> projects = baseDao.querySome(sql, Project.class, title, page.getSize(), page.getLimit());
-        String count = "select * from project where "+content+" like '%?%'";
+        String count = "select count(id) from project where "+content+" like '%?%'";
         int sum = baseDao.queryCount(count, title);
         page.setSum(sum);
         page.setData(projects);
         return page;
+    }
+
+
+    public List<Project> getAll() {
+        return baseDao.querySome("select * from project order by id desc", Project.class);
     }
 
 }

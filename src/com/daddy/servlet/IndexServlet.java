@@ -30,7 +30,7 @@ public class IndexServlet extends HttpServlet {
             }
         }
         req.setAttribute("projects",projects);
-        req.setAttribute("newsProjects",projectService.getList3());
+        req.setAttribute("newsProjects",projectService.getAll());
         req.getRequestDispatcher("index.jsp").forward(req,resp);
     }
 }

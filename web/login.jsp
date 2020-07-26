@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>旅游分享-登录/注册</title>
+    <title>Daddy旅行社-登录/注册</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 
