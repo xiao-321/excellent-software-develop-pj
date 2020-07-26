@@ -11,6 +11,16 @@ public class Page {
     int sum;
     //   内容
     Object data;
+    //    总页数
+    int total;
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
     public Object getData() {
         return data;
@@ -66,6 +76,14 @@ public class Page {
 
     public void setSum(int sum) {
         this.sum = sum;
+        int i = sum / limit;
+        if (i<=0){
+            this.total=1;
+        } else if (i*limit<sum){
+            this.total=i+1;
+        }else {
+            this.total=i;
+        }
     }
 
     @Override

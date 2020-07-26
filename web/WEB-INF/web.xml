@@ -39,6 +39,14 @@
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/Search</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SearServlet</servlet-name>
+        <servlet-class>com.daddy.servlet.SearServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearServlet</servlet-name>
+        <url-pattern>/sear</url-pattern>
+    </servlet-mapping>
 
 
     <filter>
