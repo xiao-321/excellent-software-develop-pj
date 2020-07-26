@@ -8,9 +8,9 @@ form {
 
 }
 
-input,select{
-    width: 300px !important;
-    height: 35px !important;
+#search input,select{
+    width: 300px;
+    height: 35px;
     margin-top: 15px;
 }
 input[type=file]{

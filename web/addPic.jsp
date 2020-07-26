@@ -32,36 +32,59 @@
             <div class="logo_right">
                 <nav class="nav">
                     <ul>
-                        <li><a href="index.jsp" class="active">首页</a></li>
-                        <li><a href="court_travel_show.jsp">热门图片</a></li>
-                        <li><a href="comfortable.jsp">最新图片</a></li>
+                        <li><a href="${pageContext.request.contextPath}/index" class="active">首页</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Court">热门图片</a></li>
+                        <li><a href="${pageContext.request.contextPath}/new">最新图片</a></li>
                     </ul>
                 </nav>
                 <div class="search">
-          <span class="y_z">
-		  	 		<a href="" class="zh active" style="margin-right: 30px">
-              <button type="button" class="btn btn-default btn-sm">登录</button>
-            </a>
-            <a href="" class="en">
-              <button type="button" class="btn btn-default btn-sm">注册</button>
-            </a>
+                    <c:if test="${sessionScope.user == null}">
+                <span class="y_z">
+		  	 		<a href="login.jsp" class="zh active" style="margin-right: 30px">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="location.href='login.jsp'">登录</button>
+                    </a>
+                    <a href="login.jsp" class="en">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="location.href='login.jsp'">注册</button>
+                    </a>
 		  	 	</span>
+                    </c:if>
+                    <c:if test="${sessionScope.user != null}">
+                    <span class="y_z">
+            <select name="sele" onchange="s_click(this)" style="width: 100px;display: inline-block;margin-bottom: 10px">
+              <option value="javaScript:;">${sessionScope.user.name}</option>
+              <option value="addPic.jsp">分享图片</option>
+              <option value="https://www.baidu.com">我的收藏</option>
+              <option value="https://www.baidu.com">我的图片</option>
+              <option value="/login?type=5">退出登录</option>
+            </select>
+          </span>
+                    </c:if>
                 </div>
             </div>
         </div>
     </header>
     <!--header-->
     <div id="search">
-        <form id="addform" action="">
-            分享标题:<input style="margin-left: 29px" type="text" placeholder="请输入">
+        <form id="addform" action="javaScript:;" style="height: 565px">
+            分享标题:<input style="margin-left: 29px" name="title" type="text" placeholder="请输入" required>
             图片内容：<input id="file_upload" type="file"><br>
-            分享作者：<input style="margin-left: 16px" type="text" placeholder="请输入"><br>
-            分享主题：<input style="margin-left: 16px" type="number" placeholder="请输入"><br>
-            国家：<input style="margin-left: 45px" type="number" placeholder="请输入"><br>
-            所属城市：<input style="margin-left: 15px;" type="number" placeholder="请输入"><br>
-            分享内容：<textarea style="margin-left: 15px;" type="text" placeholder="请输入"></textarea>
-            <input style="margin-left: 15px;" type="text" placeholder="请输入" hidden><br>
+            分享作者：<input style="margin-left: 16px" name="author" type="text" placeholder="请输入" required><br>
+            分享主题：<input style="margin-left: 16px" name="theme" type="text" placeholder="请输入" required><br>
+            热度：<input style="margin-left: 45px" name="heat" type="number" placeholder="请输入" required><br>
+            国家：<input style="margin-left: 45px" name="state" type="text" placeholder="请输入" required><br>
+            所属城市：<input style="margin-left: 15px;" type="text" name="city" placeholder="请输入" required><br>
+            分享内容：<textarea style="margin-left: 15px;" name="introduction" type="text" placeholder="请输入"
+                           required></textarea>
+            <input style="margin-left: 15px;" type="text" name="img" id="img" required hidden><br>
             <img id="preview" src="" alt="请上传图片">
+            <button style="margin-left: 5%;margin-top: 20px;width:80px;height: 34px; border-radius: 17px;border:none;outline: none">
+                分 享
+            </button>
+            <button style="margin-left: 18%;margin-top: 20px;width:80px;height: 34px; border-radius: 17px;border:none;outline: none;"
+                    type="reset">重 置
+            </button>
         </form>
     </div>
 
@@ -70,7 +93,7 @@
 
 
 <!--footer  start-->
-<footer class="footer" style="margin-top: 552px;">
+<footer class="footer" style="margin-top: 615px;">
     <div class="footer_con">
         <div class="con">
             <div class="nei">
@@ -103,13 +126,7 @@
 <nav id="mmenu">
     <ul>
         <li><a href="index.jsp" class="active">首页</a></li>
-        <li><a href="court_travel_show.jsp">热门图片</a>
-            <ul>
-                <li><a href="court_travel_show.jsp">万竹林海</a></li>
-                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
-            </ul>
-        </li>
+        <li><a href="court_travel_show.jsp">热门图片</a></li>
         <li><a href="comfortable.jsp">最新图片</a></li>
     </ul>
 </nav>
@@ -153,24 +170,49 @@
             }
             var file_upload = $('#file_upload')[0].files[0];
             var formdata = new FormData();
-            formdata.append("fileUpLoad",file_upload);
+            formdata.append("fileUpLoad", file_upload);
             $.ajax({
-                url:"/upload",
-                type:'post',
-                data:formdata,
-                async:false,
-                cache: true,
+                url: "/upload",
+                type: 'post',
+                data: formdata,
+                async: false,
+                cache: false,
+                contentType: false,
                 processData: false,
-                enctype:'multipart/form-data',
-                success:function (data) {
-                    console.log(data);
-                },error:function (data) {
-                    console.log(data);
+                success: function (data) {
+                    var json = JSON.parse(data);
+                    $('#img').val(json.url);
+                }, error: function (data) {
+                    console.log(data.status);
                 }
             })
         });
     });
-
+    $('#addform').submit(function () {
+        $.ajax({
+            url: "/addPic",
+            type: 'post',
+            data: $('#addform').serialize(),
+            success: function (data) {
+                alert(data);
+                window.location.href = "/index";
+            }, error: function (data) {
+                console.log(data.status);
+            }
+        })
+    });
+    function s_click(obj) {
+        var num = 0;
+        for (var i = 0; i < obj.options.length; i++) {
+            if (obj.options[i].selected === true) {
+                num++;
+            }
+        }
+        if (num === 1) {
+            var url = obj.options[obj.selectedIndex].value;
+            window.location.href = url;
+        }
+    }
 </script>
 </body>
 </html>

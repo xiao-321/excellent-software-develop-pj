@@ -4,6 +4,7 @@ import com.daddy.entity.Project;
 import com.daddy.entity.QCMax;
 import com.daddy.utils.BaseDao;
 import com.daddy.utils.Page;
+import com.daddy.utils.Utils;
 
 import java.util.List;
 
@@ -79,7 +80,8 @@ public class ProjectDao {
         return baseDao.querySome("select * from project order by id desc", Project.class);
     }
 
-    public boolean insertPro(Project project){
-        return false;
+    public boolean insertPro(Project p){
+        return baseDao.inUpDel("insert into project (title,theme,author,introduction,heat,state,city,time,img) values (?,?,?,?,?,?,?,?,?)",
+                p.getTitle(),p.getTheme(),p.getAuthor(),p.getIntroduction(),p.getHeat(),p.getState(),p.getCity(), Utils.dateToString(p.getTime()),p.getImg());
     }
 }

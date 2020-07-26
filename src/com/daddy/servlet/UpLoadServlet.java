@@ -26,11 +26,10 @@ public class UpLoadServlet extends HttpServlet {
         String fileName = part.getSubmittedFileName();
         String contextPath = req.getSession().getServletContext().getRealPath("images");
         part.write(contextPath+"\\"+fileName);
-        System.err.println(contextPath+"\\"+fileName);
         resp.setContentType("text/html;charset=UTF-8");
         Map<String,Object> res = new HashMap<>();
         res.put("data",1);
-        res.put("url","images\\"+fileName);
+        res.put("url","/images/"+fileName);
         Writer writer = resp.getWriter();
         writer.write(JSON.toJSONString(res));
         writer.flush();

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ page import="com.daddy.utils.Utils" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -32,26 +33,35 @@
             <div class="logo_right">
                 <nav class="nav">
                     <ul>
-                        <li><a href="index.jsp" class="active">首页</a></li>
-                        <li><a href="Court">热门图片</a>
-                            <ul>
-                                <li><a href="Court?title=万竹">万林竹海</a></li>
-                                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-                                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="comfortable.jsp">最新图片</a></li>
+                        <li><a href="${pageContext.request.contextPath}/index" class="active">首页</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Court">热门图片</a></li>
+                        <li><a href="${pageContext.request.contextPath}/new">最新图片</a></li>
                     </ul>
                 </nav>
                 <div class="search">
-          <span class="y_z">
-		  	 		<a href="" class="zh active" style="margin-right: 30px">
-              <button type="button" class="btn btn-default btn-sm">登录</button>
-            </a>
-            <a href="" class="en">
-              <button type="button" class="btn btn-default btn-sm">注册</button>
-            </a>
+                    <c:if test="${sessionScope.user == null}">
+                <span class="y_z">
+		  	 		<a href="login.jsp" class="zh active" style="margin-right: 30px">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="location.href='login.jsp'">登录</button>
+                    </a>
+                    <a href="login.jsp" class="en">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="location.href='login.jsp'">注册</button>
+                    </a>
 		  	 	</span>
+                </c:if>
+                    <c:if test="${sessionScope.user != null}">
+                    <span class="y_z">
+            <select name="sele" onchange="s_click(this)" style="width: 100px;display: inline-block;margin-bottom: 10px">
+              <option value="javaScript:;">${sessionScope.user.name}</option>
+              <option value="addPic.jsp">分享图片</option>
+              <option value="https://www.baidu.com">我的收藏</option>
+              <option value="https://www.baidu.com">我的图片</option>
+              <option value="/login?type=5">退出登录</option>
+            </select>
+          </span>
+                    </c:if>
                 </div>
             </div>
         </div>
@@ -103,6 +113,7 @@
                             </div>
                         </div>
                         <div class="middle-text">
+                            <h3>[名称]</h3>${pro.title}
                             <p>
                             <h3>[作者]</h3>${pro.author}
                             <p>
@@ -214,14 +225,17 @@
                 let html = '';
                 let pro = data.data;
                 for (let i = 0; i < pro.length; i++) {
+                    var dateTime = new Date(pro[i].time);
+                    var tree_time = dateTime.getFullYear() + '-'+ (dateTime.getMonth()+1) + '-'+ dateTime.getDate() +' '+ dateTime.getHours()+ ':'+ dateTime.getMinutes();
                     html += '<div class="syzz-midden">' +
                         '<div class="midden-img">' +
                         '<div> <a href = "comfortable.jsp"> <img src ="' + pro[i].img + '" alt = ""> </a></div>' +
                         '</div>' +
                         '<div class= "middle-text">' +
+                        '<h3>[名称]</h3>' + pro[i].title +
                         '<p><h3>[作者]</h3>' + pro[i].author +
                         '<p><h3>[主题]</h3>' + pro[i].theme +
-                        '<p><h3>[发布时间]</h3>' + pro[i].time +
+                        '<p><h3>[发布时间]</h3>' + tree_time +
                         '</div>' +
                         '</div>'
                 }

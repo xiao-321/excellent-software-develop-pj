@@ -42,8 +42,8 @@ To change this template use File | Settings | File Templates.
                 <nav class="nav">
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/index" class="active">首页</a></li>
-                        <li><a href="Court">热门图片</a></li>
-                        <li><a href="comfortable.jsp">最新图片</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Court">热门图片</a></li>
+                        <li><a href="${pageContext.request.contextPath}/new">最新图片</a></li>
                     </ul>
                 </nav>
                 <div class="search">
@@ -55,14 +55,23 @@ To change this template use File | Settings | File Templates.
             </span>
                     </a>
                     <c:if test="${sessionScope.user == null}">
-                        <a href="login.jsp">登录 | 注册</a>
+                <span class="y_z">
+		  	 		<a href="login.jsp" class="zh active" style="margin-right: 30px">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="location.href='login.jsp'">登录</button>
+                    </a>
+                    <a href="login.jsp" class="en">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="location.href='login.jsp'">注册</button>
+                    </a>
+		  	 	</span>
                     </c:if>
                     <c:if test="${sessionScope.user != null}">
                     <span class="y_z">
-            <select name="sele" onchange="s_click(this)">
+            <select name="sele" onchange="s_click(this)" style="width: 100px;display: inline-block;margin-bottom: 10px">
               <option value="javaScript:;">${sessionScope.user.name}</option>
+              <option value="addPic.jsp">分享图片</option>
               <option value="https://www.baidu.com">我的收藏</option>
-              <option value="https://www.baidu.com">上传</option>
               <option value="https://www.baidu.com">我的图片</option>
               <option value="/login?type=5">退出登录</option>
             </select>
@@ -95,10 +104,10 @@ To change this template use File | Settings | File Templates.
         <div class="swiper-wrapper">
             <c:forEach items="${requestScope.projects}" var="project">
                 <div class="swiper-slide wow bounceIn">
-                    <a href="Court">
+                    <a href="${pageContext.request.contextPath}/detail?id=${project.id}">
                         <img src="${project.img}" style="width: 380px;height: 270px"  alt="" class="vcenter"/>
                     </a>
-                    <a href="Court" class="swiper-text">
+                    <a href="${pageContext.request.contextPath}/detail?id=${project.id}" class="swiper-text">
           <span class="glyphicon glyphicon glyphicon-fire " style="color: red" aria-hidden="true">
           </span>${project.title}
                     </a>
@@ -131,10 +140,11 @@ To change this template use File | Settings | File Templates.
                 <c:forEach items="${requestScope.newsProjects}" var="news">
                     <div class="father">
                         <div class="midden-img">
-                            <div><a href="comfortable.jsp"><img style="width: 380px;height: 270px" src="${news.img}" alt=""></a>
+                            <div><a href="${pageContext.request.contextPath}/detail?id=${news.id}"><img style="width: 380px;height: 270px" src="${news.img}" alt=""></a>
                             </div>
                         </div>
-                        <div class="middle-text">
+                        <div class="middle-text" style="position: relative;left: 50px;
+    bottom: -17px;">
                             <p>
                                     ${news.title}
                             </p>

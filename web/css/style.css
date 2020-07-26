@@ -312,7 +312,7 @@ ul li {
 #search textarea{
     margin-top: 20px;
     width: 300px;
-    height: 180px;
+    height: 150px;
     border-radius: 15px;
     border: 1px solid rgb(230,230,230);
     outline: none;
@@ -670,8 +670,8 @@ ul li {
 .syzz-midden .middle-text {
     text-align: center;
     position: absolute;
-    left: 196px;
-    bottom: -17px;
+    right: 0;
+    top: 0;
 }
 
 .icon-collection {
@@ -1002,6 +1002,10 @@ ul li {
     font-size: 14px;
 }
 
+.text_shadow{
+    /*text-shadow: 1px 0 1px white;*/
+    color: white;
+}
 .footer .footer_con .con .nei .links ul {
     position: absolute;
     top: 25px;

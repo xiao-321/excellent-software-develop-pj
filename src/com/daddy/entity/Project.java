@@ -8,13 +8,25 @@ public class Project {
     String theme;
     String author;
     String introduction;
-    String heat;
+    int heat;
     String state;
     String city;
     Date time;
     String img;
 
     public Project() {
+    }
+
+    public Project(String title, String theme, String author, String introduction, int heat, String state, String city, Date time, String img) {
+        this.title = title;
+        this.theme = theme;
+        this.author = author;
+        this.introduction = introduction;
+        this.heat = heat;
+        this.state = state;
+        this.city = city;
+        this.time = time;
+        this.img = img;
     }
 
     public String getTheme() {
@@ -57,11 +69,11 @@ public class Project {
         this.introduction = introduction;
     }
 
-    public String getHeat() {
+    public int getHeat() {
         return heat;
     }
 
-    public void setHeat(String heat) {
+    public void setHeat(int heat) {
         this.heat = heat;
     }
 

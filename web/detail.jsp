@@ -15,7 +15,30 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link href="font-awesome-4.5.0/css/font-awesome.min.css" rel='stylesheet' type='text/css' media="all"/>
   <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+  <style>
+    .mask_bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      z-index: -2;
+      filter: blur(100px);
+    }
+
+    .mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  </style>
 
 </head>
 <body>
@@ -25,7 +48,7 @@
   <header class="header_zi">
     <div class="container">
       <div class="logo">
-        <a href="index.jsp"><img src="images/logo1.png" alt=""/></a>
+        <a href="index.html"><img src="images/logo1.png" alt=""/></a>
       </div>
       <a href="#mmenu" class="phone-nav"><i class="fa fa-list"></i></a>
       <div class="logo_right">
@@ -33,7 +56,7 @@
           <ul>
             <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
             <li><a href="${pageContext.request.contextPath}/Court">热门图片</a></li>
-            <li><a href="${pageContext.request.contextPath}/new" class="active">最新图片</a></li>
+            <li><a href="${pageContext.request.contextPath}/new">最新图片</a></li>
           </ul>
         </nav>
         <div class="search">
@@ -48,7 +71,7 @@
                                 onclick="location.href='login.jsp'">注册</button>
                     </a>
 		  	 	</span>
-        </c:if>
+          </c:if>
           <c:if test="${sessionScope.user != null}">
                     <span class="y_z">
             <select name="sele" onchange="s_click(this)" style="width: 100px;display: inline-block;margin-bottom: 10px">
@@ -67,15 +90,15 @@
 
   <!--banner  start-->
   <section class="banner_zi">
-    <div><img src="images/comfortable.png" alt=""></div>
+    <!--<div><img src="images/comfortable.png" alt=""></div>-->
   </section>
   <!--banner end-->
   <div class="head_bar">
-    <span>位置：</span><a href="${pageContext.request.contextPath}/index">首页 </a> > <span class="active">最新上传</span>
+    <span>位置：</span><a href="${pageContext.request.contextPath}/index">首页 </a> > <span class="active">图片详情</span>
   </div>
   <div class="comfor_con">
     <div class="top_tit">
-      <span class="span1"><a href="comfortable.jsp">最新上传</a></span><br/>
+      <span class="span1"><a href="#">分享详情</a></span><br/>
       <span class="span2">Latest upload</span>
     </div>
     <div class="com_shi">
@@ -83,38 +106,25 @@
     </div>
     <div class="zx_fang">
       <div class="f_da wow bounceIn" style="max-height:300px;height: 280px; overflow: hidden">
-        <c:forEach items="${requestScope.list}" var="pro">
-          <div style="max-height:300px;"><img src="${pro.img}" alt=""/>
-            <ul class="text_shadow">
-              <li><span style="font-size: 25px;">${pro.title}</span></li>
-              <li><strong>[作者]</strong><span>${pro.author}</span></li>
-              <li><strong>[图片简介]</strong><span>${pro.introduction}</span></li>
-              <li><strong>[热度]</strong><span>${pro.heat}</span></li>
-              <li><strong>[国家]</strong><span>${pro.state}</span></li>
-              <li><strong>[城市]</strong><span>${pro.city}</span></li>
-              <li><strong>[发布时间]</strong><span>${pro.time}</span></li>
-            </ul>
-          </div>
-        </c:forEach>
+        <div><img src="${pro.img}"/>
+          <ul style="font-size: 20px">
+            <li><span class="text_shadow" style="font-size: 25px;">${pro.title}</span></li>
+            <li><strong class="text_shadow">[作者]</strong><span class="text_shadow">${pro.author}</span></li>
+            <li><strong class="text_shadow">[图片简介]</strong><span class="text_shadow">${pro.introduction}</span></li>
+            <li><strong class="text_shadow">[热度]</strong><span class="text_shadow">${pro.heat}</span></li>
+            <li><strong class="text_shadow">[国家]</strong><span class="text_shadow">${pro.state}</span></li>
+            <li><strong class="text_shadow">[城市]</strong><span class="text_shadow">${pro.city}</span></li>
+            <li><strong class="text_shadow">[发布时间]</strong><span class="text_shadow">${pro.time}</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="f_xiao">
-        <c:forEach items="${requestScope.list}" var="pro">
-          <div>
-            <a href="${pageContext.request.contextPath}/detail?id=${pro.id}">
-              <div class="pic">
-                <img src="<c:out value="${pro.img}"/>" alt=""/><i></i>
-              </div>
-              <c:out value="${pro.title}"/>
-            </a>
-          </div>
-        </c:forEach>
-      </div>
+
     </div>
   </div>
 
 
   <!--footer  start-->
-  <footer class="footer">
+  <footer class="footer" style="margin-top: 100px;">
     <div class="footer_con">
       <div class="con">
         <div class="nei">
@@ -125,7 +135,7 @@
             手机：<a href="tel:189 1610 1908">18* **** ****</a><br/>
             地址：**市**区**路**号<br/>
             <span>
-							<a href="http://www.71360.com/" target="_blank">
+							<a href="#" target="_blank">
 								<img src="images/yu.png" alt=""/>
 							</a>
 
@@ -145,25 +155,11 @@
     <div class="copy">Copyright© 2016 版权所有：********公司</div>
   </footer>
   <!--footer  end-->
-
-  <!--移动端  Mmenu-->
-  <nav id="mmenu">
-    <ul>
-      <li><a href="index.jsp" class="active">首页</a></li>
-      <li><a href="court_travel_show.jsp">热门图片</a>
-        <ul>
-          <li><a href="court_travel_show.jsp">万竹林海</a></li>
-          <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-          <li><a href="court_travel_show.jsp">乐山大佛</a></li>
-        </ul>
-      </li>
-      <li><a href="comfortable.jsp">最新图片</a></li>
-    </ul>
-  </nav>
 </div>
-
+<div class="mask_bg" style="background-image: url('${pro.img}')"></div>
+<div class="mask"></div>
 <!--Include Js-->
-<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 
 <!--移动端导航-->
 <script src="js/jquery.mmenu.all.min.js" type="text/javascript" charset="utf-8"></script>

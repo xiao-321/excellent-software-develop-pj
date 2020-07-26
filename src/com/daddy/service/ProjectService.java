@@ -63,4 +63,7 @@ public class ProjectService {
             text="time";
         return projectDao.getTimeList(page,title,content,text);
     }
+    public boolean insertPro(Project p){
+        return projectDao.insertPro(p);
+    }
 }
