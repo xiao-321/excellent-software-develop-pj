@@ -309,6 +309,16 @@ ul li {
     outline: none;
     text-align: center;
 }
+#search textarea{
+    margin-top: 20px;
+    width: 300px;
+    height: 180px;
+    border-radius: 15px;
+    border: 1px solid rgb(230,230,230);
+    outline: none;
+    text-align: center;
+    user-select: none;
+}
 #search select{
     width: 150px;
     height: 30px;
@@ -638,7 +648,10 @@ ul li {
     position: relative;
     margin-top: 40px;
 }
-
+.father{
+    position: relative;
+    display: inline-block;
+}
 .btn_paging{
     margin-top: 40px;
     position: relative;
@@ -648,16 +661,17 @@ ul li {
 }
 
 .syzz-midden .midden-img {
-    max-width: 40%;
+    max-width: 100%;
+    padding-bottom: 10px;
+    display: inline-block;
+    margin: 7px;
 }
 
 .syzz-midden .middle-text {
-    padding: 10px 20px;
-    width: 60%;
+    text-align: center;
     position: absolute;
-    right: 0;
-    top: 0;
-    text-align: right;
+    left: 196px;
+    bottom: -17px;
 }
 
 .icon-collection {

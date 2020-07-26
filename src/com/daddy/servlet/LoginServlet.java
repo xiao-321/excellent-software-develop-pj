@@ -1,11 +1,6 @@
 package com.daddy.servlet;
-
-import com.daddy.entity.Project;
-import com.daddy.entity.QCMax;
 import com.daddy.entity.User;
-import com.daddy.service.ProjectService;
 import com.daddy.service.UserService;
-import sun.font.EAttribute;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 public class LoginServlet extends HttpServlet {
     private UserService userService = new UserService();
@@ -58,6 +52,8 @@ public class LoginServlet extends HttpServlet {
         }else {
             HttpSession session = req.getSession();
             session.setAttribute("user", null);
+            System.out.println(session.getAttribute("user"));
+            resp.sendRedirect("/index");
         }
     }
 }

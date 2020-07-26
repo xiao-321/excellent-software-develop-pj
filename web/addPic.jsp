@@ -52,20 +52,15 @@
     </header>
     <!--header-->
     <div id="search">
-        <form action="">
-            图片ID:<input style="margin-right: 20px" type="text" placeholder="请输入">
+        <form id="addform" action="">
+            分享标题:<input style="margin-left: 29px" type="text" placeholder="请输入">
             图片内容：<input id="file_upload" type="file"><br>
-            图片标题：<input style="margin-left: 16px" type="text" placeholder="请输入"><br>
-            经度：<input style="margin-left: 45px" type="number" placeholder="请输入"><br>
-            纬度：<input style="margin-left: 45px" type="number" placeholder="请输入"><br>
-            城市代码：<input style="margin-left: 15px;" type="number" placeholder="请输入"><br>
-            国家简称：<input style="margin-left: 15px;" type="text" placeholder="请输入"><br>
-            银行ID：<input style="margin-left: 29px;" type="text" placeholder="请输入"><br>
-            图片地址：<input style="margin-left: 15px;" type="text" placeholder="请输入"><br>
-            图片选择：<select style="margin-left: 15px;" name="" id="">
-            <option value="">请选择……</option>
-            <option value="">请选择……</option>
-        </select>
+            分享作者：<input style="margin-left: 16px" type="text" placeholder="请输入"><br>
+            分享主题：<input style="margin-left: 16px" type="number" placeholder="请输入"><br>
+            国家：<input style="margin-left: 45px" type="number" placeholder="请输入"><br>
+            所属城市：<input style="margin-left: 15px;" type="number" placeholder="请输入"><br>
+            分享内容：<textarea style="margin-left: 15px;" type="text" placeholder="请输入"></textarea>
+            <input style="margin-left: 15px;" type="text" placeholder="请输入" hidden><br>
             <img id="preview" src="" alt="请上传图片">
         </form>
     </div>
@@ -156,8 +151,26 @@
                 imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
                 imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
             }
+            var file_upload = $('#file_upload')[0].files[0];
+            var formdata = new FormData();
+            formdata.append("fileUpLoad",file_upload);
+            $.ajax({
+                url:"/upload",
+                type:'post',
+                data:formdata,
+                async:false,
+                cache: true,
+                processData: false,
+                enctype:'multipart/form-data',
+                success:function (data) {
+                    console.log(data);
+                },error:function (data) {
+                    console.log(data);
+                }
+            })
         });
     });
+
 </script>
 </body>
 </html>

@@ -64,7 +64,7 @@ To change this template use File | Settings | File Templates.
               <option value="https://www.baidu.com">我的收藏</option>
               <option value="https://www.baidu.com">上传</option>
               <option value="https://www.baidu.com">我的图片</option>
-              <option value="/index?type=5">退出登录</option>
+              <option value="/login?type=5">退出登录</option>
             </select>
           </span>
                     </c:if>
@@ -96,7 +96,7 @@ To change this template use File | Settings | File Templates.
             <c:forEach items="${requestScope.projects}" var="project">
                 <div class="swiper-slide wow bounceIn">
                     <a href="court_travel_show.jsp">
-                        <img src="${project.img}" alt="" class="vcenter"/>
+                        <img src="${project.img}" style="width: 380px;height: 270px"  alt="" class="vcenter"/>
                     </a>
                     <a href="court_travel_show.jsp" class="swiper-text">
           <span class="glyphicon glyphicon glyphicon-fire " style="color: red" aria-hidden="true">
@@ -127,25 +127,21 @@ To change this template use File | Settings | File Templates.
                     </div>
                 </div>
             </div>
-            <c:forEach items="${requestScope.newsProjects}" var="news">
-                <div class="syzz-midden">
-                    <div class="midden-img">
-                        <div><a href="comfortable.jsp"><img src="${news.img}" alt=""></a>
+            <div class="syzz-midden">
+                <c:forEach items="${requestScope.newsProjects}" var="news">
+                    <div class="father">
+                        <div class="midden-img">
+                            <div><a href="comfortable.jsp"><img style="width: 380px;height: 270px" src="${news.img}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="middle-text">
+                            <p>
+                                    ${news.title}
+                            </p>
                         </div>
                     </div>
-                    <div class="middle-text">
-                        <p>
-                        <h3>[作者]</h3>${news.author}
-                        </p>
-                        <p>
-                        <h3>[主题]</h3>${news.title}
-                        </p>
-                        <p>
-                        <h3>[发布时间]</h3>${news.time}
-                        </p>
-                    </div>
-                </div>
-            </c:forEach>
+                </c:forEach>
+            </div>
         </div>
         <div class="xia_x">
             <span class="img"></span>
@@ -205,7 +201,8 @@ To change this template use File | Settings | File Templates.
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
 
 <!--移动端导航-->
-<script src="${pageContext.request.contextPath}/js/jquery.mmenu.all.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.mmenu.all.min.js" type="text/javascript"
+        charset="utf-8"></script>
 
 
 <!--slick-->
@@ -213,7 +210,8 @@ To change this template use File | Settings | File Templates.
 <script src="${pageContext.request.contextPath}/js/wow.js" type="text/javascript" charset="utf-8"></script>
 
 <!--placeholder-->
-<script src="${pageContext.request.contextPath}/js/jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.placeholder.min.js" type="text/javascript"
+        charset="utf-8"></script>
 <script type="text/javascript">
     $(function () {
         $('input, textarea').placeholder();
@@ -256,7 +254,7 @@ To change this template use File | Settings | File Templates.
         }
         if (num === 1) {
             var url = obj.options[obj.selectedIndex].value;
-            window.open(url); //这里修改打开连接方式
+            window.location.href = url;
         }
     }
 </script>

@@ -79,4 +79,7 @@ public class ProjectDao {
         return baseDao.querySome("select * from project order by id desc", Project.class);
     }
 
+    public boolean insertPro(Project project){
+        return false;
+    }
 }
