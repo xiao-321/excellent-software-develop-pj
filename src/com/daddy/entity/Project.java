@@ -5,6 +5,7 @@ import java.util.Date;
 public class Project {
     int id;
     String title;
+    String theme;
     String author;
     String introduction;
     String heat;
@@ -16,16 +17,12 @@ public class Project {
     public Project() {
     }
 
-    public Project(int id, String title, String author, String introduction, String heat, String state, String city, Date time, String img) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.introduction = introduction;
-        this.heat = heat;
-        this.state = state;
-        this.city = city;
-        this.time = time;
-        this.img = img;
+    public String getTheme() {
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
     }
 
     public int getId() {

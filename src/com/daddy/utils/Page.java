@@ -24,10 +24,14 @@ public class Page {
 
     }
 
-    public Page(int limit, int page) {
+    public Page(Integer limit, Integer page) {
+        if (limit==null||limit<=0)
+            limit=5;
+        if (page==null||page<=0)
+            page=1;
         this.limit = limit;
         this.page = page;
-        this.size = page * limit;
+        this.size =(page-1) * limit;
     }
 
     public int getLimit() {

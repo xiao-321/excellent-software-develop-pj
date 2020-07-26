@@ -53,7 +53,7 @@ To change this template use File | Settings | File Templates.
                     </ul>
                 </nav>
                 <div class="search">
-                    <a href="search.jsp">
+                    <a href="Search">
             <span class="sea_x">
               <button type="button" class="btn btn-default icon-search btn-sm">
                 <span class="glyphicon glyphicon-search " aria-hidden="true"></span> 搜索
@@ -99,7 +99,7 @@ To change this template use File | Settings | File Templates.
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <c:forEach items="${projects}" var="project">
+            <c:forEach items="${requestScope.projects}" var="project">
                 <div class="swiper-slide wow bounceIn">
                     <a href="court_travel_show.jsp">
                         <img src="${project.img}" alt="" class="vcenter"/>
@@ -133,7 +133,7 @@ To change this template use File | Settings | File Templates.
                     </div>
                 </div>
             </div>
-            <c:forEach items="${newsProjects}" var="news">
+            <c:forEach items="${requestScope.newsProjects}" var="news">
                 <div class="syzz-midden">
                     <div class="midden-img">
                         <div><a href="comfortable.jsp"><img src="${news.img}" alt=""></a>

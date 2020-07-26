@@ -43,11 +43,17 @@ public class ProjectService {
         return projectDao.getList3();
     }
 
-    public Page getTitleList(Page page,String title,String content){
-        return projectDao.getTitleList(page,title,content);
-    }
 
     public Page getTimeList(Page page,String title,String content,String text){
+        if (title==null){
+            List<Project> list = projectDao.getList(page);
+            page.setData(list);
+            return page;
+        }
+        if (content==null)
+            content="title";
+        if (text==null)
+            text="time";
         return projectDao.getTimeList(page,title,content,text);
     }
 }
