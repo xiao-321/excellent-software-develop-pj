@@ -58,20 +58,20 @@
     </header>
     <div id="search">
         <form action="${pageContext.request.contextPath}/Search" method="post">
-        <input type="search" placeholder="请输入搜索内容">
-        <select name="">
-            <option value="请选择">请选择</option>
-            <option value="标题筛选">标题筛选</option>
-            <option value="主题筛选">主题筛选</option>
-        </select>
-        <select name="">
-            <option value="请选择">请选择</option>
-            <option value="热度筛选">热度筛选</option>
-            <option value="时间筛选">时间筛选</option>
-        </select>
-        <button type="button" class="btn btn-default icon-search btn-sm">
-            <span class="glyphicon glyphicon-search " aria-hidden="true"></span> 搜索
-        </button>
+            <input type="search" placeholder="请输入搜索内容" name="search" id="sear">
+            <select name="content" id="content">
+                <option value="">请选择</option>
+                <option value="title">标题筛选</option>
+                <option value="theme">主题筛选</option>
+            </select>
+            <select name="select" id="select">
+                <option value="">请选择</option>
+                <option value="heat">热度筛选</option>
+                <option value="time">时间筛选</option>
+            </select>
+            <button type="button" class="btn btn-default icon-search btn-sm">
+                <span class="glyphicon glyphicon-search " aria-hidden="true"></span> 搜索
+            </button>
         </form>
     </div>
 
@@ -94,22 +94,34 @@
                     </div>
                 </div>
             </div>
-            <c:forEach items="${requestScope.data.data}" var="pro">
-                <div class="syzz-midden">
-                    <div class="midden-img">
-                        <div><a href="comfortable.jsp"><img src="images/comfortable-fengjing1.jpg" alt=""></a>
+
+            <div id="context">
+                <c:forEach items="${requestScope.data.data}" var="pro">
+                    <div class="syzz-midden">
+                        <div class="midden-img">
+                            <div><a href="comfortable.jsp"><img src="${pro.img}" alt=""></a>
+                            </div>
                         </div>
+                        <div class="middle-text">
+                            <p>
+                            <h3>[作者]</h3>${pro.author}
+                            <p>
+                            <h3>[主题]</h3>${pro.theme}
+                            <p>
+                            <h3>[发布时间]</h3>${pro.time}
+                        </div>
+
                     </div>
-                    <div class="middle-text">
-                        <p>
-                        <h3>[作者]</h3>${pro.author}
-                        <p>
-                        <h3>[主题]</h3>${pro.theme}
-                        <p>
-                        <h3>[发布时间]</h3>${pro.time}
-                    </div>
+                </c:forEach>
+            </div>
+            <c:if test="${requestScope.data.sum>0}">
+                <div class="btn_paging">
+                    <button class="btn btn-primary" id="pre">上一页</button>
+                    <button class="btn btn-primary" id="next">下一页</button>
+                    <span>共<c:out value="${requestScope.data.total}"/>页，当前<c:out
+                            value="${requestScope.data.page}"/>页</span>
                 </div>
-            </c:forEach>
+            </c:if>
         </div>
     </div>
 </div>
@@ -182,6 +194,69 @@
 </script>
 <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 <!--<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+<script type="text/javascript">
+    let page = ${requestScope.data.page};
+    let total = ${requestScope.data.total};
 
+    function paging(limit) {
+        let sear = $("#sear").val();
+        let content = $("#content").val();
+        let select = $("#select").val();
+        $.ajax({
+            url: "/sear"
+            , data: {search: sear, content: content, select: select, page: page, limit: limit}
+            , type: "Post"
+            , async: false
+            , success: function (data) {
+                let html = '';
+                let pro = data.data;
+                for (let i = 0; i < pro.length; i++) {
+                    html += '<div class="syzz-midden">' +
+                        '<div class="midden-img">' +
+                        '<div> <a href = "comfortable.jsp"> <img src ="' + pro[i].img + '" alt = ""> </a></div>' +
+                        '</div>' +
+                        '<div class= "middle-text">' +
+                        '<p><h3>[作者]</h3>' + pro[i].author +
+                        '<p><h3>[主题]</h3>' + pro[i].theme +
+                        '<p><h3>[发布时间]</h3>' + pro[i].time +
+                        '</div>' +
+                        '</div>'
+                }
+                html += '<div class="btn_paging" >' +
+                    '<button class= "btn btn-primary" id = "pre" > 上一页 </button>' +
+                    '<button class= "btn btn-primary" id = "next" > 下一页 </button>' +
+                    '<span>共'+data.total+'页，当前'+data.page+'页 </span>' +
+                    '</div>';
+                $("#context").html(html);
+                $("#pre").click(function () {
+                    let limit = 5;
+                    if (page > 1)
+                        page--;
+                    paging(page, limit);
+                });
+                $("#next").click(function () {
+                    let limit = 5;
+                    if (page < total)
+                        page++;
+                    paging(page, limit);
+                })
+            }
+        })
+    }
+
+    $("#pre").click(function () {
+        let limit = 5;
+        if (page > 1)
+            page--;
+        paging(page, limit);
+    });
+    $("#next").click(function () {
+        let limit = 5;
+        if (page < total)
+            page++;
+        paging(page, limit);
+    })
+
+</script>
 </body>
 </html>

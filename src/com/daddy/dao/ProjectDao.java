@@ -14,6 +14,11 @@ public class ProjectDao {
         String sql = "select * from project limit ?,?";
         return baseDao.querySome(sql, Project.class, page.getSize(), page.getLimit());
     }
+    public int getCount() {
+        String sql = "select count(id) from project ";
+        return baseDao.queryCount(sql);
+    }
+
     public List<Project> getNowList() {
         String sql = "select * from project order by time desc limit ?,?";
         return baseDao.querySome(sql, Project.class,0,4);

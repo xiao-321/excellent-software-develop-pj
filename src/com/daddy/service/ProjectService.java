@@ -19,6 +19,7 @@ public class ProjectService {
        return nowList;
     }
 
+
     public Project getOne(String title){
         Project one=null;
         if (title==null) {
@@ -52,6 +53,8 @@ public class ProjectService {
         if (title==null){
             List<Project> list = projectDao.getList(page);
             page.setData(list);
+            int count = projectDao.getCount();
+            page.setSum(count);
             return page;
         }
         if (content==null)
