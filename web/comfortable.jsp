@@ -32,7 +32,7 @@
       <div class="logo_right">
         <nav class="nav">
           <ul>
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
             <li><a href="court_travel_show.jsp">热门图片</a>
               <ul>
                 <li><a href="court_travel_show.jsp">万林竹海</a></li>
