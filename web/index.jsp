@@ -83,7 +83,7 @@ To change this template use File | Settings | File Templates.
     <div class="jqgk">
         <div class="contai">
             <div class="top_tit">
-                <span class="span1"><a href="court_travel_show.jsp">热门介绍</a></span><br/>
+                <span class="span1"><a href="Court">热门介绍</a></span><br/>
                 <span class="span2">POPULAR INTRODUCTION</span>
             </div>
             <div class="xia_x">
@@ -95,10 +95,10 @@ To change this template use File | Settings | File Templates.
         <div class="swiper-wrapper">
             <c:forEach items="${requestScope.projects}" var="project">
                 <div class="swiper-slide wow bounceIn">
-                    <a href="court_travel_show.jsp">
+                    <a href="Court">
                         <img src="${project.img}" style="width: 380px;height: 270px"  alt="" class="vcenter"/>
                     </a>
-                    <a href="court_travel_show.jsp" class="swiper-text">
+                    <a href="Court" class="swiper-text">
           <span class="glyphicon glyphicon glyphicon-fire " style="color: red" aria-hidden="true">
           </span>${project.title}
                     </a>
@@ -187,9 +187,9 @@ To change this template use File | Settings | File Templates.
         <li><a href="index.jsp" class="active">首页</a></li>
         <li><a href="Court">热门图片</a>
             <ul>
-                <li><a href="court_travel_show.jsp">万竹林海</a></li>
-                <li><a href="court_travel_show.jsp">庐山瀑布</a></li>
-                <li><a href="court_travel_show.jsp">乐山大佛</a></li>
+                <li><a href="Court">万竹林海</a></li>
+                <li><a href="Court">庐山瀑布</a></li>
+                <li><a href="Court">乐山大佛</a></li>
             </ul>
         </li>
         <li><a href="comfortable.jsp">最新图片</a></li>

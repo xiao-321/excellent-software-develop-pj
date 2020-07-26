@@ -18,7 +18,7 @@ public class CourtServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String title = (String) req.getAttribute("title");
+        String title = req.getParameter("title");
         ProjectService service=new ProjectService();
         Project one = service.getOne(title);
         List<Project> list = service.getList(null);

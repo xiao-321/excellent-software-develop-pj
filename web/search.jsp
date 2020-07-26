@@ -99,7 +99,7 @@
                 <c:forEach items="${requestScope.data.data}" var="pro">
                     <div class="syzz-midden">
                         <div class="midden-img">
-                            <div><a href="comfortable.jsp"><img src="${pro.img}" alt=""></a>
+                            <div><a href="Court?title=${pro.title}"><img src="${pro.img}" alt=""></a>
                             </div>
                         </div>
                         <div class="middle-text">

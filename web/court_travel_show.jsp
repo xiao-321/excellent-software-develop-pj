@@ -33,7 +33,7 @@
                 <nav class="nav">
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
-                        <li><a href="court_travel_show.jsp" class="active">热门图片</a></li>
+                        <li><a href="Court" class="active">热门图片</a></li>
                         <li><a href="comfortable.jsp">最新图片</a></li>
                     </ul>
                 </nav>
@@ -92,7 +92,7 @@
                     <div class="f_xiao">
                         <c:forEach items="${requestScope.list}" var="pro">
                             <div>
-                                <a href="">
+                                <a href="Court?title=${pro.title}">
                                     <div class="pic">
                                         <img src="<c:out value="${pro.img}"/>" alt=""/><i></i>
                                     </div>
