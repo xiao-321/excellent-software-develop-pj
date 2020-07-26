@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BaseDao implements AutoCloseable {
@@ -25,6 +26,7 @@ public class BaseDao implements AutoCloseable {
                     state.setObject(i + 1, args[i]);
                 }
             }
+            System.out.println(state.toString());
             rs = state.executeQuery();
             while (rs.next()) {
                 T t = clazz.newInstance();

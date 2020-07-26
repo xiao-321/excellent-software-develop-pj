@@ -17,11 +17,11 @@ public class SearchServlet  extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String search = (String) req.getAttribute("search");
-        String content = (String) req.getAttribute("content");
-        String select = (String) req.getAttribute("select");
-        Integer limit = (Integer) req.getAttribute("limit");
-        Integer page = (Integer) req.getAttribute("page");
+        String search =  req.getParameter("search");
+        String content =  req.getParameter("content");
+        String select = req.getParameter("select");
+        Integer limit = Integer.valueOf(req.getParameter("limit")!=null?req.getParameter("limit"):"0");
+        Integer page = Integer.valueOf(req.getParameter("page")!=null?req.getParameter("page"):"0");
         Page p=new Page(limit,page);
         ProjectService projectService=new ProjectService();
         Page timeList = projectService.getTimeList(p, search, content, select);

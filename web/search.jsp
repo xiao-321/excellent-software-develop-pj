@@ -69,7 +69,7 @@
                 <option value="heat">热度筛选</option>
                 <option value="time">时间筛选</option>
             </select>
-            <button type="button" class="btn btn-default icon-search btn-sm">
+            <button type="button" class="btn btn-default icon-search btn-sm" onclick="paging(1, 5)">
                 <span class="glyphicon glyphicon-search " aria-hidden="true"></span> 搜索
             </button>
         </form>
@@ -113,15 +113,16 @@
 
                     </div>
                 </c:forEach>
+
+                <c:if test="${requestScope.data.sum>0}">
+                    <div class="btn_paging">
+                        <button class="btn btn-primary" id="pre">上一页</button>
+                        <button class="btn btn-primary" id="next">下一页</button>
+                        <span>共<c:out value="${requestScope.data.total}"/>页，当前<c:out
+                                value="${requestScope.data.page}"/>页</span>
+                    </div>
+                </c:if>
             </div>
-            <c:if test="${requestScope.data.sum>0}">
-                <div class="btn_paging">
-                    <button class="btn btn-primary" id="pre">上一页</button>
-                    <button class="btn btn-primary" id="next">下一页</button>
-                    <span>共<c:out value="${requestScope.data.total}"/>页，当前<c:out
-                            value="${requestScope.data.page}"/>页</span>
-                </div>
-            </c:if>
         </div>
     </div>
 </div>
@@ -198,15 +199,17 @@
     let page = ${requestScope.data.page};
     let total = ${requestScope.data.total};
 
-    function paging(limit) {
+    function paging(page, limit) {
         let sear = $("#sear").val();
         let content = $("#content").val();
         let select = $("#select").val();
         $.ajax({
             url: "/sear"
-            , data: {search: sear, content: content, select: select, page: page, limit: limit}
-            , type: "Post"
+            , dataType: "json"
+            , contentType: "application/json;charset=utf-8"
+            , type: "post"
             , async: false
+            , data: JSON.stringify({search: sear, content: content, select: select, page: page, limit: limit})
             , success: function (data) {
                 let html = '';
                 let pro = data.data;
@@ -223,39 +226,37 @@
                         '</div>'
                 }
                 html += '<div class="btn_paging" >' +
-                    '<button class= "btn btn-primary" id = "pre" > 上一页 </button>' +
-                    '<button class= "btn btn-primary" id = "next" > 下一页 </button>' +
-                    '<span>共'+data.total+'页，当前'+data.page+'页 </span>' +
+                    '<button class="btn btn-primary" id="pre" onclick="preBtn()"> 上一页 </button>' +
+                    '<button class="btn btn-primary" id="next" onclick="nextBtn()"> 下一页 </button>' +
+                    '<span>共' + data.total + '页，当前' + data.page + '页 </span>' +
                     '</div>';
                 $("#context").html(html);
-                $("#pre").click(function () {
-                    let limit = 5;
-                    if (page > 1)
-                        page--;
-                    paging(page, limit);
-                });
-                $("#next").click(function () {
-                    let limit = 5;
-                    if (page < total)
-                        page++;
-                    paging(page, limit);
-                })
+                total=data.total
             }
-        })
+        });
     }
 
-    $("#pre").click(function () {
+    let preBtn =function () {
         let limit = 5;
-        if (page > 1)
+        if (page > 1) {
             page--;
-        paging(page, limit);
-    });
-    $("#next").click(function () {
+            paging(page, limit);
+        }
+    };
+
+    let nextBtn =function () {
         let limit = 5;
-        if (page < total)
+        if (page < total) {
             page++;
-        paging(page, limit);
-    })
+            paging(page, limit);
+        }
+    };
+    $("#pre").click(function () {
+        preBtn();
+    });
+     $("#next").click(function () {
+         nextBtn()
+     });
 
 </script>
 </body>

@@ -94,6 +94,7 @@ public class Page {
                 ", size=" + size +
                 ", sum=" + sum +
                 ", data=" + data +
+                ", total=" + total +
                 '}';
     }
 }

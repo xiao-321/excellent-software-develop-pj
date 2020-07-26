@@ -57,9 +57,9 @@ public class ProjectService {
             page.setSum(count);
             return page;
         }
-        if (content==null)
+        if (!("title".equals(content)|"theme".equals(content)))
             content="title";
-        if (text==null)
+        if (!("time".equals(text)|"heat".equals(text)))
             text="time";
         return projectDao.getTimeList(page,title,content,text);
     }

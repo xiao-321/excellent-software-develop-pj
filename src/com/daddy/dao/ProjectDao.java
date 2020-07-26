@@ -65,10 +65,10 @@ public class ProjectDao {
     }
 
     public Page getTimeList(Page page,String title,String content,String text){
-        String sql = "select * from project where "+content+" like '%?%' order by "+text+" desc limit ?,?";
-        List<Project> projects = baseDao.querySome(sql, Project.class, title, page.getSize(), page.getLimit());
-        String count = "select count(id) from project where "+content+" like '%?%'";
-        int sum = baseDao.queryCount(count, title);
+        String sql = "select * from project where "+content+" like '%"+title+"%' order by "+text+" desc limit ?,?";
+        List<Project> projects = baseDao.querySome(sql, Project.class, page.getSize(), page.getLimit());
+        String count = "select count(id) from project where "+content+" like '%"+title+"%'";
+        int sum = baseDao.queryCount(count);
         page.setSum(sum);
         page.setData(projects);
         return page;
