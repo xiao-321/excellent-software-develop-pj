@@ -2,7 +2,7 @@ package com.daddy.entity;
 
 public class QCMax {
     private int oid;
-    private int count;
+    private long count;
 
     public int getOid() {
         return oid;
@@ -12,11 +12,11 @@ public class QCMax {
         this.oid = oid;
     }
 
-    public int getCount() {
+    public long getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(long count) {
         this.count = count;
     }
 

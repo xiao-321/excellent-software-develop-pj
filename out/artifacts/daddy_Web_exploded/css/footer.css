@@ -1,0 +1,30 @@
+footer{
+    background-color: #000000 ;
+    text-align: center;
+}
+#vx{
+    width: 150px;
+    height: 150px;
+}
+footer .instructions{
+    margin:0;
+    height: 220px;
+    color: #ffffff;
+    font-size: 15px;
+}
+footer .instructions .col{
+    float:left;
+    padding: 30px;
+    margin-left: 160px;
+    margin-top: 30px;
+}
+footer .instructions img{
+    float:right;
+    margin-right: 240px;
+    padding: 30px;
+}
+footer .copyright {
+    color: #ffffff;
+    font-size: 15px;
+    padding-bottom: 10px;
+}

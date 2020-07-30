@@ -97,17 +97,8 @@ public class BaseDao implements AutoCloseable {
             Object fieldValue = rs.getObject(fieldName);
             if (fieldValue != null) {
                 String setMethodName = getMethodName(fieldName);
-                if (setMethodName.equals("setCost")) {
-                    fieldValue = Double.parseDouble(String.valueOf(fieldValue));
-                }
-                if (setMethodName.equals("setPrice")) {
-                    fieldValue = Double.parseDouble(String.valueOf(fieldValue));
-                }
-                if (setMethodName.equals("setSum")) {
-                    fieldValue = Double.parseDouble(String.valueOf(fieldValue));
-                }
-                if (setMethodName.equals("setFmoney")) {
-                    fieldValue = Double.parseDouble(String.valueOf(fieldValue));
+                if (setMethodName.equals("setCount")) {
+                    fieldValue = Integer.parseInt(String.valueOf(fieldValue));
                 }
                 Method me = clazz.getDeclaredMethod(setMethodName, field.getType());
                 me.invoke(t, fieldValue);

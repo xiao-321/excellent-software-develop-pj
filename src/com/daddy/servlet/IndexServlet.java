@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class IndexServlet extends HttpServlet {
@@ -20,13 +21,14 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Project> projects = null;
+        List<Project> projects = new ArrayList<>();
         List<QCMax> qcMaxes = projectService.getMax5();
         if (qcMaxes.size() < 5){
             projects = projectService.getList();
         }else {
             for (int i = 0;i < qcMaxes.size();i++){
-                projects.add(projectService.getById(qcMaxes.get(i).getOid()));
+                Project project = projectService.getById(qcMaxes.get(i).getOid());
+                projects.add(project);
             }
         }
         req.setAttribute("projects",projects);

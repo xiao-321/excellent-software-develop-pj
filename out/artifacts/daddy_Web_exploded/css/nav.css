@@ -1,0 +1,17 @@
+.header{
+    background-color: black;
+    z-index: 100;
+}
+
+.logo1{
+    padding-top: 15px;
+}
+
+.header_zi{
+    background-color: black;
+    z-index: 100;
+}
+
+.btn-sm{
+    font-size: 12px;
+}

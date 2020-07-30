@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourtServlet extends HttpServlet {
@@ -20,7 +21,7 @@ public class CourtServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProjectService service = new ProjectService();
-        List<Project> projects = null;
+        List<Project> projects = new ArrayList<>();
         List<QCMax> qcMaxes = service.getMax5();
         if (qcMaxes.size() < 5){
             projects = service.getList();
